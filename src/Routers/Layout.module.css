@@ -1,0 +1,96 @@
+:root{
+  /* 색상 */
+  --btn-Color:#F2C94C;
+  --btn-pointColor:#f2984ad7;
+  --bg-Color:#FFFFFF;
+  --footer-bgColor:#1d0707;
+  --footer-Color:#beadad;
+  /* 폰트사이즈 */
+  --font-xs:12px;
+  --font-s:15px;
+  --font-m:19px;
+  --font-l:22px;
+  --font-xl:28px;
+}
+
+/* Layout */
+
+.Layout{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+
+/* Header */
+
+
+.Header{
+  margin-top: 20px;
+  padding: 20px;
+  /* position: relative; */
+}
+
+.Header .inner{
+  position: relative;
+}
+
+.Hh1{
+  text-align: center;
+  font-size: var(--font-xl);
+} 
+
+.Hbtn{
+  position: absolute;
+  right: 10px;
+  top:40px;
+  padding: 8px 50px;
+  cursor: pointer;
+}
+
+/* section */
+
+.section{
+  position: relative;
+}
+
+/* Nav */
+
+.Nav{
+  position: absolute;
+  left: 2%;
+}
+
+.NavUl li{
+  border: var(--btn-Color) 1px solid;
+  margin-bottom: 10px;
+  border-radius: 0 10px 0 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.NavUl li:last-child{
+  margin-bottom: 0;
+}
+
+.NavUl li:hover{
+  background-color: var(--btn-pointColor);
+  color: var(--bg-Color);
+  transition: all 0.8s;
+}
+
+
+/* Footer */
+
+.Footer{
+  padding: 15px;
+  margin-top: auto;
+  background-color: var(--footer-bgColor);
+  color: var(--footer-Color);
+}
+
+.Footer p {
+  font-size: var(--font-s);
+}
