@@ -1,13 +1,39 @@
 {
   "files": {
-    "main.css": "/polar51/busking.git/static/css/main.2f573f87.css",
-    "main.js": "/polar51/busking.git/static/js/main.73ae763b.js",
+    "main.css": "/polar51/busking.git/static/css/main.458100fc.css",
+    "main.js": "/polar51/busking.git/static/js/main.1b939148.js",
+    "reactPlayerYouTube.js": "/polar51/busking.git/static/js/reactPlayerYouTube.a62c82ff.chunk.js",
+    "reactPlayerSoundCloud.js": "/polar51/busking.git/static/js/reactPlayerSoundCloud.87425070.chunk.js",
+    "reactPlayerVimeo.js": "/polar51/busking.git/static/js/reactPlayerVimeo.695bef31.chunk.js",
+    "reactPlayerFacebook.js": "/polar51/busking.git/static/js/reactPlayerFacebook.523a2cb3.chunk.js",
+    "reactPlayerStreamable.js": "/polar51/busking.git/static/js/reactPlayerStreamable.bc5da9e4.chunk.js",
+    "reactPlayerWistia.js": "/polar51/busking.git/static/js/reactPlayerWistia.372f69e0.chunk.js",
+    "reactPlayerTwitch.js": "/polar51/busking.git/static/js/reactPlayerTwitch.2ad53d4e.chunk.js",
+    "reactPlayerDailyMotion.js": "/polar51/busking.git/static/js/reactPlayerDailyMotion.7a5724cc.chunk.js",
+    "reactPlayerMixcloud.js": "/polar51/busking.git/static/js/reactPlayerMixcloud.30f7e766.chunk.js",
+    "reactPlayerVidyard.js": "/polar51/busking.git/static/js/reactPlayerVidyard.b3ba2ec5.chunk.js",
+    "reactPlayerKaltura.js": "/polar51/busking.git/static/js/reactPlayerKaltura.f77d8d01.chunk.js",
+    "reactPlayerFilePlayer.js": "/polar51/busking.git/static/js/reactPlayerFilePlayer.2d915db0.chunk.js",
+    "reactPlayerPreview.js": "/polar51/busking.git/static/js/reactPlayerPreview.62e97546.chunk.js",
     "index.html": "/polar51/busking.git/index.html",
-    "main.2f573f87.css.map": "/polar51/busking.git/static/css/main.2f573f87.css.map",
-    "main.73ae763b.js.map": "/polar51/busking.git/static/js/main.73ae763b.js.map"
+    "main.458100fc.css.map": "/polar51/busking.git/static/css/main.458100fc.css.map",
+    "main.1b939148.js.map": "/polar51/busking.git/static/js/main.1b939148.js.map",
+    "reactPlayerYouTube.a62c82ff.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerYouTube.a62c82ff.chunk.js.map",
+    "reactPlayerSoundCloud.87425070.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerSoundCloud.87425070.chunk.js.map",
+    "reactPlayerVimeo.695bef31.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerVimeo.695bef31.chunk.js.map",
+    "reactPlayerFacebook.523a2cb3.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerFacebook.523a2cb3.chunk.js.map",
+    "reactPlayerStreamable.bc5da9e4.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerStreamable.bc5da9e4.chunk.js.map",
+    "reactPlayerWistia.372f69e0.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerWistia.372f69e0.chunk.js.map",
+    "reactPlayerTwitch.2ad53d4e.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerTwitch.2ad53d4e.chunk.js.map",
+    "reactPlayerDailyMotion.7a5724cc.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerDailyMotion.7a5724cc.chunk.js.map",
+    "reactPlayerMixcloud.30f7e766.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerMixcloud.30f7e766.chunk.js.map",
+    "reactPlayerVidyard.b3ba2ec5.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerVidyard.b3ba2ec5.chunk.js.map",
+    "reactPlayerKaltura.f77d8d01.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerKaltura.f77d8d01.chunk.js.map",
+    "reactPlayerFilePlayer.2d915db0.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerFilePlayer.2d915db0.chunk.js.map",
+    "reactPlayerPreview.62e97546.chunk.js.map": "/polar51/busking.git/static/js/reactPlayerPreview.62e97546.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f573f87.css",
-    "static/js/main.73ae763b.js"
+    "static/css/main.458100fc.css",
+    "static/js/main.1b939148.js"
   ]
 }
