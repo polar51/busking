@@ -10,7 +10,7 @@
   --font-s:15px;
   --font-m:19px;
   --font-l:22px;
-  --font-xl:28px;
+  --font-xl:32px;
 }
 
 /* Layout */
@@ -45,16 +45,16 @@
 .Hbtn{
   position: absolute;
   right: 10px;
-  top:40px;
+  top:0px;
   padding: 8px 50px;
   cursor: pointer;
 }
 
 /* section */
 
-.section{
+/* .section{
   position: relative;
-}
+} */
 
 /* Nav */
 
@@ -94,3 +94,5 @@
 .Footer p {
   font-size: var(--font-s);
 }
+
+

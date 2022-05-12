@@ -1,0 +1,55 @@
+:root{
+  /* 색상 */
+  --btn-Color:#F2C94C;
+  --btn-pointColor:#f2984ad7;
+  --bg-Color:#FFFFFF;
+  --footer-bgColor:#1d0707;
+  --footer-Color:#beadad;
+  /* 폰트사이즈 */
+  --font-xs:12px;
+  --font-s:15px;
+  --font-m:19px;
+  --font-l:22px;
+  --font-xl:32px;
+}
+
+
+
+
+.Body{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%,-50%);
+}
+
+/* 게시판 */
+
+.Table{
+  text-align: center;
+}
+
+.Table:first-child{
+  margin-bottom: 40px;
+}
+
+.Table th{
+  font-weight: bolder;
+  padding: 12px 2px;
+  border: 1px solid black;
+}
+
+.Table td{
+  padding: 10px 0;
+  border: 1px solid #444;
+}
+
+
+/* 동영상 */
+
+.Video{
+  position: absolute;
+  top: 50%;
+  left: 120%;
+  transform: translate(0,-50%);
+}
