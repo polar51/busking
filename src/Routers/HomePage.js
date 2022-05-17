@@ -119,14 +119,14 @@ function HomePage() {
       <div className={styles.Video}>
                 <ReactPlayer
                     className='react-player'
-                    url={'https://youtu.be/jMUYtK7Vozg'}    // 플레이어 url
-                    width='400px'         // 플레이어 크기 (가로)
-                    height='500px'        // 플레이어 크기 (세로)
-                    playing={true}        // 자동 재생 on
-                    muted={true}          // 자동 재생 on
-                    controls={true}       // 플레이어 컨트롤 노출 여부
-                    light={false}         // 플레이어 모드
-                    pip={true}            // pip 모드 설정 여부
+                    url={'https://youtu.be/jMUYtK7Vozg'}    
+                    width='400px'         
+                    height='500px'       
+                    playing={true}        
+                    muted={true}          
+                    controls={true}     
+                    light={false}         
+                    pip={true}            
                     poster={'https://youtu.be/jMUYtK7Vozg'}
                 />
             </div>

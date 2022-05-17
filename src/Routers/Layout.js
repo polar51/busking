@@ -1,6 +1,8 @@
 
 import styles from "./Layout.module.css"
-import HomePage from "./HomePage"
+// import HomePage from "./HomePage"
+// import AboutPage from "./AboutPage"
+import LoginPage from "./LoginPage"
 
 function Layout() {
   return (
@@ -19,7 +21,7 @@ function Layout() {
             <li>종합 예술 버스킹 일정</li>
           </ul>
         </nav>
-        <HomePage className={styles.Cont} />
+        <LoginPage />
       </section>
       <footer className={styles.Footer}>
           <p>
