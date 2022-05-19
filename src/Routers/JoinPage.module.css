@@ -19,18 +19,26 @@
   top: 50%;
   left: 40%;
   transform: translate(-20%,-50%);
+  border: 1px solid black;
+  padding: 20px;
 }
 
-.Table{
+
+.Title{
+  font-size: var(--font-l);
   margin: 20px;
-}
-
-.Table td {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
   text-align: center;
 }
 
-.Table th{
-  border: 1px solid black;
+.Id,.Pw,.Email,.PhoneNumber,.btn{
+  margin: 10px;
+}
+
+.Id input{
+  margin-right: 10px;
+  width: 100px;
+}
+
+.Email input{
+  width: 100px;
 }

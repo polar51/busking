@@ -1,8 +1,10 @@
-
-import styles from "./Layout.module.css"
-// import HomePage from "./HomePage"
-// import AboutPage from "./AboutPage"
-import LoginPage from "./LoginPage"
+import React, { useState } from "react";
+import styles from "./Layout.module.css";
+import HomePage from "./HomePage";
+import LoginPage from "./LoginPage";
+import JoinPage from "./JoinPage";
+import DataPage from "./DataPage";
+import AboutPage from "./AboutPage";
 
 function Layout() {
   return (
@@ -21,7 +23,7 @@ function Layout() {
             <li>종합 예술 버스킹 일정</li>
           </ul>
         </nav>
-        <LoginPage />
+        <DataPage />
       </section>
       <footer className={styles.Footer}>
           <p>

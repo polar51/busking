@@ -17,7 +17,6 @@ function AboutPage() {
         <col width="500px" />
         <col width="100px" />
         <col width="100px" />
-        <col width="100px" />
         </colgroup>
         <thead>
           <tr>
@@ -25,7 +24,6 @@ function AboutPage() {
             <th>제목</th>
             <th>작성자</th>
             <th>일시</th>
-            <th>조회수</th>
           </tr>
         </thead>
         <tbody>
@@ -34,35 +32,30 @@ function AboutPage() {
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>밴드</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>춤</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>노래</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>노래</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           
         </tbody>

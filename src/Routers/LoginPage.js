@@ -21,6 +21,10 @@ function LoginPage() {
     const onClickLogin = () => {
         console.log('click login')
     }
+
+    const onClickJoin = () => {
+        console.log('click Join')
+    }
  
 	// 페이지 렌더링 후 가장 처음 호출되는 함수
     useEffect(() => {
@@ -32,16 +36,17 @@ function LoginPage() {
     [])
   return(
     <div className={styles.Body}>
-      <h2>Login</h2>
-            <div>
+      <h2 className={styles.title}>Login</h2>
+            <div className={styles.Id}>
                 <label htmlFor='input_id'>ID : </label>
                 <input type='text' name='input_id' value={inputId} onChange={handleInputId} />
             </div>
-            <div>
+            <div className={styles.Pw}>
                 <label htmlFor='input_pw'>PW : </label>
                 <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
             </div>
-            <div>
+            <div className={styles.btn}>
+                <button type='button' onClick={onClickJoin}>Join</button>
                 <button type='button' onClick={onClickLogin}>Login</button>
             </div>
     </div>

@@ -10,7 +10,6 @@ function HomePage() {
         <col width="500px" />
         <col width="100px" />
         <col width="100px" />
-        <col width="100px" />
         </colgroup>
         <thead>
           <tr>
@@ -18,7 +17,6 @@ function HomePage() {
             <th>제목</th>
             <th>작성자</th>
             <th>일시</th>
-            <th>조회수</th>
           </tr>
         </thead>
         <tbody>
@@ -27,35 +25,30 @@ function HomePage() {
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>밴드</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>춤</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>노래</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>노래</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           
         </tbody>
@@ -66,7 +59,6 @@ function HomePage() {
         <col width="500px" />
         <col width="100px" />
         <col width="100px" />
-        <col width="100px" />
         </colgroup>
         <thead>
           <tr>
@@ -74,7 +66,6 @@ function HomePage() {
             <th>제목</th>
             <th>작성자</th>
             <th>일시</th>
-            <th>조회수</th>
           </tr>
         </thead>
         <tbody>
@@ -83,35 +74,30 @@ function HomePage() {
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>뮤지컬</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>연기</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>행위예술</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           <tr>
             <td>무용</td>
             <td>예시</td>
             <td>익명</td>
             <td>2022-05-11</td>
-            <td>132</td>
           </tr>
           
         </tbody>

@@ -22,15 +22,12 @@
 }
 
 .Table{
-  margin: 20px;
-}
-
-.Table td {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  text-align: center;
-}
-
-.Table th{
   border: 1px solid black;
+  width: 900px;
+}
+
+.Table * {
+  border: 1px solid black;
+  text-align: center;
+  padding: 15px;
 }

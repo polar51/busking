@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "express": "^4.18.1",
-    "gh-pages": "^3.2.3",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -44,5 +43,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://github.com/polar51/busking.git"
+  "homepage": "https://polar51.github.io/busking/",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }

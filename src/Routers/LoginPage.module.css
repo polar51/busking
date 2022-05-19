@@ -18,5 +18,31 @@
   position: absolute;
   top: 50%;
   left: 40%;
-  transform: translate(-50%,-50%);
+  transform: translate(-0%,-50%);
+  border: 1px solid black;
+  padding: 30px;
 }
+
+.title{
+  font-size: var(--font-l);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.Id{
+  margin-bottom: 5px;
+}
+
+.Pw{
+  margin-bottom: 5px;
+}
+
+.btn{
+  margin-bottom: 5px;
+
+}
+
+.btn button:first-child{
+  margin-right: 5px;
+}
+
