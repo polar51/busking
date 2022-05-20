@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from "./LoginPage.module.css"
+import { Link } from 'react-router-dom';
 
 
 
@@ -46,7 +47,7 @@ function LoginPage() {
                 <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
             </div>
             <div className={styles.btn}>
-                <button type='button' onClick={onClickJoin}>Join</button>
+                <Link to="/Join"><button type='button' onClick={onClickJoin}>Join</button></Link>
                 <button type='button' onClick={onClickLogin}>Login</button>
             </div>
     </div>
