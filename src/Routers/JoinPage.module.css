@@ -42,3 +42,12 @@
 .Email input{
   width: 100px;
 }
+
+.PhoneNumber input {
+  width: 210px;
+}
+
+.PhoneNumber input::-webkit-outer-spin-button,
+.PhoneNumber input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+}

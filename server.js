@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const port = 3001; // <- 3000에서 다른 숫자로 변경
+const port = 5000; 
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const mysql = require("mysql"); // << 새로 추가된 부분
+const mysql = require("mysql"); 
+const { func } = require("prop-types");
 
 const connection = mysql.createConnection({
   connectTimeout : 10,
@@ -15,22 +15,20 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
-app.post("/text", (req,res) => {
-  const user_id = req.body.param;
-  console.log(user_id);
-  connection.query('select * from login',(err,result)=>{
+app.post("/Join/create", (req,res) => {
+  let sql = 
+'INSERT INTO login (id, pw, email, phonenumber) VALUES(?,?,?,?)';
+  let params = [req.body.id, req.body.pw, req.body.email,req.body.phonenumber]
+  connection.query(sql,params, function(err,rows,fields) {
     if(err){
-      console.log("DB저장 실패");
-    } else {
-      console.log("DB저장 성공")
+      console.log(err);
+    } else{
+      console.log("Create User!")
     }
   })
 });
