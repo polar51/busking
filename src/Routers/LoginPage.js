@@ -16,16 +16,6 @@ function LoginPage() {
     const handleInputPw = (e) => {
         setInputPw(e.target.value)
     }
-
-	// login 버튼 클릭 이벤트
-    const onClickLogin = () => {
-        console.log('click login')
-    }
-
-    const onClickJoin = () => {
-        console.log('click Join')
-    }
-
     return(
     <div className={styles.Body}>
         <h2 className={styles.title}>Login</h2>
@@ -38,8 +28,8 @@ function LoginPage() {
                 <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
             </div>
             <div className={styles.btn}>
-                <Link to="/Join"><button type='button' onClick={onClickJoin}>Join</button></Link>
-                <button type='button' onClick={onClickLogin}>Login</button>
+                <Link to="/Join"><button type='button'>Join</button></Link>
+                <button type='button'>Login</button>
             </div>
     </div>
     )

@@ -28,10 +28,11 @@ app.post("/Join/create", (req,res) => {
     if(err){
       console.log(err);
     } else{
-      console.log("Create User!")
+      console.log("Create User!" + req.body)
     }
   })
 });
+
 
 app.listen(port, () => {
   console.log(`Connect at http://localhost:${port}`);
