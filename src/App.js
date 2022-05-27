@@ -7,7 +7,7 @@ import HomePage from "./Routers/HomePage";
 import AboutPage from "./Routers/AboutPage";
 import LoginPage from "./Routers/LoginPage";
 import JoinPage from "./Routers/JoinPage";
-import DataPage from "./Routers/DataPage";
+import Detail from "./Routers/Detail";
 
 
 
@@ -26,7 +26,7 @@ function App() {
             <Route path="/About" element={<AboutPage />} />
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/Join" element={<JoinPage />} />
-            <Route path="/Data" element={<DataPage />} />
+            <Route path="/Detail/:num" element={<Detail />} />
           </Route>
         </Routes>
   );

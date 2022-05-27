@@ -1,4 +1,4 @@
-import styles from "./DataPage.module.css"
+import styles from "./Detail.module.css"
 
 
 function DataPage() {

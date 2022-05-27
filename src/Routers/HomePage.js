@@ -1,7 +1,23 @@
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import styles from "./HomePage.module.css"
+import axios from 'axios';
 
 function HomePage() {
+
+  const [content, setContent] = useState([]);
+  const getList = async () => {
+    const res = await (
+      await axios.get("http://localhost:5000/list")
+    );
+    setContent(res.data.reverse())
+  };
+
+  useEffect(() => {
+    getList()
+  },[]);
+  
+
   return(
     <div className={styles.Body}>
       <table className={styles.Table}>
@@ -20,37 +36,14 @@ function HomePage() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>춤</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>밴드</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>춤</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>노래</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>노래</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          
+        {content.map((listItem, idx) => (
+            <tr key={content[idx].num}>
+                <td>{content[idx].type}</td>
+                <td>{content[idx].title}</td>
+                <td>{content[idx].teamName}</td>
+                <td>{content[idx].date}</td>
+              </tr>
+          ))}
         </tbody>
       </table>
       <table className={styles.Table}>
@@ -69,36 +62,14 @@ function HomePage() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>마술</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>뮤지컬</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>연기</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>행위예술</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>무용</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
+        {content.map((listItem, idx) => (
+            <tr key={content[idx].num}>
+                <td>{content[idx].type}</td>
+                <td>{content[idx].title}</td>
+                <td>{content[idx].teamName}</td>
+                <td>{content[idx].date}</td>
+              </tr>
+          ))}
           
         </tbody>
       </table>

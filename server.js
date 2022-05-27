@@ -11,6 +11,7 @@ const connection = mysql.createConnection({
   user: "polar51",
   password: "Kodo760386!",
   database: "busking",
+  dateStrings: 'date'
 });
 
 connection.connect();
@@ -18,6 +19,32 @@ connection.connect();
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.json());
+
+
+
+
+
+
+app.get("/list", (req,res)=> {
+  let sql = "SELECT * FROM board";
+  connection.query(sql, (err, data)=>{
+    if(err){
+      console.log(err)
+      res.send(err)
+    } else {
+      console.log("success");
+      res.send(data)
+    }
+  });
+});
+
+
+
+
+
+
+
+
 
 
 app.post("/Join/create", (req,res) => {

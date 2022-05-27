@@ -1,6 +1,28 @@
 import styles from "./AboutPage.module.css"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
 function AboutPage() {
+
+  const [content, setContent] = useState([]);
+  const getList = async () => {
+    const res = await (
+      await axios.get("http://localhost:5000/list")
+    );
+    setContent(res.data.reverse())
+  };
+
+  useEffect(() => {
+    getList()
+  },[]);
+  
+
+  // 객체 번호당 tr이 붙고 value는 td로 묶는다
+
+
+
+
   return(
     <div className={styles.Body}>
       <div className={styles.MainCont}>
@@ -27,37 +49,14 @@ function AboutPage() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>춤</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>밴드</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>춤</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>노래</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          <tr>
-            <td>노래</td>
-            <td>예시</td>
-            <td>익명</td>
-            <td>2022-05-11</td>
-          </tr>
-          
+          {content.map((listItem, idx) => (
+            <tr key={content[idx].num}>
+                <td>{content[idx].type}</td>
+                <td>{content[idx].title}</td>
+                <td>{content[idx].teamName}</td>
+                <td>{content[idx].date}</td>
+              </tr>
+          ))}
         </tbody>
       </table>
         </div>
