@@ -1,14 +1,21 @@
+import * as React from 'react'
+import { useLocation } from "react-router";
 import styles from "./Detail.module.css"
+import axios from 'axios';
 
 
-function DataPage() {
+
+function Detail() {
+  const { state } = useLocation();
+  
+
   return(
     <div className={styles.Body}>
       <button type="button">뒤로가기</button>
       <table className={styles.Table}>
         <thead>
           <tr>
-            <th colSpan="3">제목</th>
+            <th colSpan="3">{state.title}</th>
           </tr>
         </thead>
         <tbody>
@@ -18,15 +25,16 @@ function DataPage() {
             <td>공연장소</td>
           </tr>
           <tr>
-            <td>노래</td>
-            <td>2022-05-19</td>
-            <td>홍대</td>
+            <td>{state.type}</td>
+            <td>{state.date}</td>
+            <td>{state.place}</td>
           </tr>
           <tr>
-            <td colSpan="3">내용</td>
+            <td colSpan="3">{state.text}</td>
           </tr>
           <tr>
-            <td colSpan="3">공연 팀 설명</td>
+            <td colSpan="2">{state.teamText}</td>
+            <td colSpan="1">{state.teamName}</td>
           </tr>
         </tbody>
       </table>
@@ -34,4 +42,4 @@ function DataPage() {
   )
 };
 
-export default DataPage;
+export default Detail;

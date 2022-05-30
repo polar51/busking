@@ -3,7 +3,6 @@ const app = express();
 const port = 5000; 
 const cors = require("cors");
 const mysql = require("mysql"); 
-const { func } = require("prop-types");
 
 const connection = mysql.createConnection({
   connectTimeout : 10,
@@ -22,7 +21,19 @@ app.use(express.json());
 
 
 
-
+app.put('/getData', (req, res)=>{
+  let params = req.body.num
+  let sql = `SELECT * from board WHERE num = ${params}`;
+  connection.query(sql, function(err, data){
+    if(err){
+      console.log(err)
+      res.send(err);
+    } else{
+      console.log(data)
+      res.send(data)
+    }
+  })
+})
 
 
 app.get("/list", (req,res)=> {
@@ -32,7 +43,6 @@ app.get("/list", (req,res)=> {
       console.log(err)
       res.send(err)
     } else {
-      console.log("success");
       res.send(data)
     }
   });

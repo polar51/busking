@@ -73,7 +73,6 @@ function JoinPage() {
   const validation = () => {
     if(!inputIdError) setInputIdError(true);
     if(!inputPwError) setInputPwError(true);
-
     if(inputIdError && inputPwError) return true;
     else return false;
 }
