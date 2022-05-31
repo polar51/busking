@@ -8,6 +8,7 @@ import AboutPage from "./Routers/AboutPage";
 import LoginPage from "./Routers/LoginPage";
 import JoinPage from "./Routers/JoinPage";
 import Detail from "./Routers/Detail";
+import Create from './Routers/Create';
 
 
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/Join" element={<JoinPage />} />
             <Route path="/Detail/:num" element={<Detail />} />
+            <Route path="/Detail/Create" element={<Create />} />
           </Route>
         </Routes>
   );

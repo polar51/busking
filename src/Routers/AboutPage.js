@@ -1,5 +1,5 @@
 import styles from "./AboutPage.module.css"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,7 @@ function AboutPage() {
   };
 
 
-  const list =  content.map((listItem) => (
+  let list =  content.map((listItem) => (
     <tr key={listItem.num} onClick={() => {navigate(`/Detail/${listItem.num}`,{state: listItem})}}>
           <td>{listItem.type}</td>
           <td>{listItem.title}</td>
@@ -24,14 +24,16 @@ function AboutPage() {
   ))
   
   
+  const GoCreate = () => {
+    navigate('/Detail/Create')
+  }
 
-
-
+  
 
 
   useEffect(() => {
     getList()
-  },[]);
+  },[list]);
   
 
 
@@ -73,7 +75,7 @@ function AboutPage() {
       </table>
         </div>
       </div>
-        <button>글쓰기</button>
+        <button onClick={GoCreate}>글쓰기</button>
     </div>
   )
 }

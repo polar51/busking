@@ -50,7 +50,15 @@ app.get("/list", (req,res)=> {
 
 
 
-
+app.post("/Detail/create", (req,res) => {
+  let sql = 'INSERT INTO board (title, type, date, place, text, teamName, teamText) VALUES(?,?,?,?,?,?,?)';
+  let params = [req.body.title, req.body.type, req.body.date, req.body.place, req.body.text, req.body.teamName, req.body.teamText]
+  connection.query(sql, params, function(err, rows, fields){
+    if(err){
+      console.log(err)
+    }
+  })
+})
 
 
 
