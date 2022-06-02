@@ -2,6 +2,7 @@ import styles from "./AboutPage.module.css"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Pagination from "react-js-pagination"
 
 function AboutPage() {
   let navigate = useNavigate();
@@ -29,6 +30,13 @@ function AboutPage() {
   }
 
   
+    const [page, setPage] = useState(1);
+  
+    const handlePageChange = (page) => {
+      setPage(page);
+    };
+
+
 
 
   useEffect(() => {
@@ -37,9 +45,6 @@ function AboutPage() {
   
 
 
-
-
-  // 객체 번호당 tr이 붙고 value는 td로 묶는다
 
 
 
@@ -73,6 +78,15 @@ function AboutPage() {
           {list}
         </tbody>
       </table>
+      <Pagination
+        activePage={page}
+        itemsCountPerPage={5}
+        totalItemsCount={450}
+        pageRangeDisplayed={5}
+        prevPageText={"‹"}
+        nextPageText={"›"}
+        onChange={handlePageChange}
+        />
         </div>
       </div>
         <button onClick={GoCreate}>글쓰기</button>

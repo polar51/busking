@@ -4,6 +4,9 @@ const port = 5000;
 const cors = require("cors");
 const mysql = require("mysql"); 
 
+
+
+
 const connection = mysql.createConnection({
   connectTimeout : 10,
   host: "localhost",
@@ -18,7 +21,6 @@ connection.connect();
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.json());
-
 
 
 app.put('/getData', (req, res)=>{
@@ -62,6 +64,17 @@ app.post("/Detail/create", (req,res) => {
 
 
 
+app.post('/Join/checkid', (req, res) => {
+  let sql = `select id from login where id=?`;
+  let userId = req.body.id;
+  connection.query(sql, [userId], (err, rows, fields)=> {
+    if( rows === undefined){
+      res.send(rows)
+    } else {
+      res.send(rows)
+    }
+  })
+})
 
 
 
@@ -73,10 +86,25 @@ app.post("/Join/create", (req,res) => {
     if(err){
       console.log(err);
     } else{
-      console.log("Create User!" + req.body)
+      console.log("Create User!")
     }
   })
 });
+
+
+
+
+
+// 로그인 부분
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const flash = require('connect-flash');
+const session = require('express-session');
+
+app.use(session({ secret: 'keyboard cat' }));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session())
 
 
 app.listen(port, () => {

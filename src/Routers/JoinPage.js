@@ -13,6 +13,7 @@ function JoinPage() {
   const [inputEmailId, setInputEmailId] = useState('')
   const [inputEmailDomain, setInputEmailDomain] = useState('')
   const [inputEmail, setInputEmail] = useState('')
+  const [ checkId, setCheckId] = useState(false)
 
 
   const [inputIdError, setInputIdError] = useState(false)
@@ -21,14 +22,14 @@ function JoinPage() {
   
   
   const handleInputId = (e) => {
-    const userIdRegex = /^[A-Za-z0-9+]{5,}$/;
+    const userIdRegex = /^[A-Za-z0-9+]{11,}$/;
     if (userIdRegex.test(e.target.value)) {setInputIdError(false);}
         else {setInputIdError(true)
         setInputId(e.target.value);}
   };
   
   const handleInputPw = (e) => {
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{20,}$/
         if (passwordRegex.test(e.target.value)) {setInputPwError(false);}
         else {setInputPwError(true)
         setInputPw(e.target.value);}
@@ -67,14 +68,34 @@ function JoinPage() {
     };
 
   
-
+  const handleCheckId = (e) => {
+    if(inputId === "") {
+      alert("ID를 입력해주세요!")
+    } else {
+    e.preventDefault();
+    axios({
+      method: "post",
+      url:'http://localhost:5000/Join/checkid',
+      data: {id: inputId}
+    })
+    .then(res => {
+      if(res.data[0] === undefined){
+        alert("사용가능한 ID입니다.");
+        setCheckId(true)
+      }
+      else {
+        alert("다른 ID를 입력해주세요.")
+      }
+    })
+    }
+    
+  }
 
 
   const validation = () => {
-    if(!inputIdError) setInputIdError(true);
-    if(!inputPwError) setInputPwError(true);
-    if(inputIdError && inputPwError) return true;
-    else return false;
+    if(checkId === true && inputPwError === true) 
+    return true
+    else return false
 }
 
   const handleClick = async(e) => {
@@ -104,6 +125,7 @@ function JoinPage() {
         <div className={styles.Id}>
           <label htmlFor='input_id'>ID : </label>
           <input type='text' name='input_id' value={inputId} onChange={handleInputId} />
+          <button type='button' onClick={handleCheckId}>중복확인</button>
         </div>
         <div className={styles.Pw} >
           <label htmlFor='input_PW' >PW : </label>

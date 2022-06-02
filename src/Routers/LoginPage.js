@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import styles from "./LoginPage.module.css"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function LoginPage() {
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
+
+    const handleLogin = () => {
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/LoginAF',
+            data: {
+                id: inputId,
+                pwd: inputPw
+            }
+        })
+    }
+
+
 
 	// input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
     const handleInputId = (e) => {
@@ -28,8 +42,8 @@ function LoginPage() {
                 <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
             </div>
             <div className={styles.btn}>
+                <button type='button' onClick={handleLogin}>Login</button>
                 <Link to="/Join"><button type='button'>Join</button></Link>
-                <button type='button'>Login</button>
             </div>
     </div>
     )
