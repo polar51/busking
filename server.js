@@ -3,6 +3,7 @@ const app = express();
 const port = 5000; 
 const cors = require("cors");
 const mysql = require("mysql"); 
+const jwt = require("jsonwebtoken")
 
 
 
@@ -96,16 +97,18 @@ app.post("/Join/create", (req,res) => {
 
 
 // 로그인 부분
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const flash = require('connect-flash');
-const session = require('express-session');
 
-app.use(session({ secret: 'keyboard cat' }));
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session())
-
+app.post("/Login/login", (req, res)=> {
+  let sql = `SELECT * FROM login WHERE id=? AND pw=?`;
+  let params = [req.body.id, req.body.pw]
+  connection.query(sql, params, (err, rows, fields)=> {
+    if(err){
+      console.log(err)
+    } else {
+      res.send(rows)
+    }
+  })
+})
 
 app.listen(port, () => {
   console.log(`Connect at http://localhost:${port}`);

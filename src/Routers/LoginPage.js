@@ -3,19 +3,30 @@ import styles from "./LoginPage.module.css"
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const jwt = require("jsonwebtoken")
+
 
 
 function LoginPage() {
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
 
-    const handleLogin = () => {
-        axios({
+
+
+    const handleLogin = async() => {
+        let body = {
+            id : inputId,
+            pw : inputPw
+        }
+        await axios({
             method: 'post',
-            url: 'http://localhost:5000/LoginAF',
-            data: {
-                id: inputId,
-                pwd: inputPw
+            url: 'http://localhost:5000/Login/login',
+            data: body
+        }).then((rows) => {
+            if(rows.data.length === 0) {
+                alert("아이디와 비밀번호를 확인해주세요")
+            } else {
+                const token = jwt.sign({ userID: rows.data.id }, SECRET_TOKEN, {expiresIn: '7d'});
             }
         })
     }
@@ -35,11 +46,11 @@ function LoginPage() {
         <h2 className={styles.title}>Login</h2>
             <div className={styles.Id}>
                 <label htmlFor='input_id'>ID : </label>
-                <input type='text' name='input_id' value={inputId} onChange={handleInputId} />
+                <input type='text' name='username' value={inputId} onChange={handleInputId} />
             </div>
             <div className={styles.Pw}>
                 <label htmlFor='input_pw'>PW : </label>
-                <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
+                <input type='password' name='password' value={inputPw} onChange={handleInputPw} />
             </div>
             <div className={styles.btn}>
                 <button type='button' onClick={handleLogin}>Login</button>
