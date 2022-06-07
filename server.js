@@ -3,7 +3,6 @@ const app = express();
 const port = 5000; 
 const cors = require("cors");
 const mysql = require("mysql"); 
-const jwt = require("jsonwebtoken")
 
 
 
@@ -98,6 +97,8 @@ app.post("/Join/create", (req,res) => {
 
 // 로그인 부분
 
+
+
 app.post("/Login/login", (req, res)=> {
   let sql = `SELECT * FROM login WHERE id=? AND pw=?`;
   let params = [req.body.id, req.body.pw]
@@ -109,6 +110,8 @@ app.post("/Login/login", (req, res)=> {
     }
   })
 })
+
+
 
 app.listen(port, () => {
   console.log(`Connect at http://localhost:${port}`);

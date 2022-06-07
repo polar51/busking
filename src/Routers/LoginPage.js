@@ -2,16 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styles from "./LoginPage.module.css"
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { createToken, verifyToken } from './middlewares/authorization';
 
-const jwt = require("jsonwebtoken")
 
 
 
 function LoginPage() {
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
-
-
 
     const handleLogin = async() => {
         let body = {
@@ -26,12 +24,15 @@ function LoginPage() {
             if(rows.data.length === 0) {
                 alert("아이디와 비밀번호를 확인해주세요")
             } else {
-                const token = jwt.sign({ userID: rows.data.id }, SECRET_TOKEN, {expiresIn: '7d'});
+                console.log(rows)
+                createToken(rows)
             }
         })
     }
 
-
+    const test = () => {
+        verifyToken()
+    }
 
 	// input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
     const handleInputId = (e) => {
@@ -55,6 +56,7 @@ function LoginPage() {
             <div className={styles.btn}>
                 <button type='button' onClick={handleLogin}>Login</button>
                 <Link to="/Join"><button type='button'>Join</button></Link>
+                <button onClick={test}>test</button>
             </div>
     </div>
     )
