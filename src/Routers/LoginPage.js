@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styles from "./LoginPage.module.css"
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { createToken, verifyToken } from './middlewares/authorization';
 
 
 
 
 function LoginPage() {
+    let sessionStorage = window.sessionStorage;
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
+    const navigate = useNavigate()
 
     const handleLogin = async() => {
         let body = {
@@ -24,17 +25,12 @@ function LoginPage() {
             if(rows.data.length === 0) {
                 alert("아이디와 비밀번호를 확인해주세요")
             } else {
-                console.log(rows)
-                createToken(rows)
+                sessionStorage.setItem("loginId", rows.data[0].id);
+                navigate('/busking')
             }
         })
     }
 
-    const test = () => {
-        verifyToken()
-    }
-
-	// input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
     const handleInputId = (e) => {
         setInputId(e.target.value)
     }
@@ -56,7 +52,6 @@ function LoginPage() {
             <div className={styles.btn}>
                 <button type='button' onClick={handleLogin}>Login</button>
                 <Link to="/Join"><button type='button'>Join</button></Link>
-                <button onClick={test}>test</button>
             </div>
     </div>
     )

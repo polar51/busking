@@ -1,20 +1,19 @@
 import * as React from 'react'
-import { useState } from 'react';
-import { useNavigate } from "react-router";
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from "react-router";
 import DatePicker from "react-datepicker"
 import { ko } from "date-fns/esm/locale";
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from "./Create.module.css"
+import styles from "./Update.module.css"
 import axios from 'axios';
 
 
 
 
 
-const Create = () => {
+const Update = () => {
+  const { state } = useLocation();
   const Navigate = useNavigate();
-  let sessionStorage = window.sessionStorage;
-  let userId = sessionStorage.getItem('loginId');
 
 
 
@@ -34,12 +33,12 @@ const Create = () => {
 
 
           //  게시판 작성 value값들입니다.
-    const [ inputTitle, setTitle] = useState("");
-    const [ inputType, setType] = useState("춤");
-    const [ inputPlace, setPlace] = useState("홍대");
-    const [ inputText, setText] = useState("");
-    const [ inputTeamText, setTeamText] = useState("");
-    const [ inputTeamName, setTeamName] = useState("");
+    const [ inputTitle, setTitle] = useState(state.title);
+    const [ inputType, setType] = useState(state.type);
+    const [ inputPlace, setPlace] = useState(state.place);
+    const [ inputText, setText] = useState(state.text);
+    const [ inputTeamText, setTeamText] = useState(state.teamText);
+    const [ inputTeamName, setTeamName] = useState(state.teamName);
 
     const handleTitle = (e) => {
           setTitle(e.target.value);
@@ -70,16 +69,12 @@ const Create = () => {
 
 
 
-    const handleClick = async(e) => {
-      if(inputTitle === "" && inputTeamName === "" && inputText === ""){
-        alert("작성 내용이 없어 저장된 내용 없이 이전 화면으로 돌아갑니다")
-        Navigate('/About')
-      } else {
-        alert("저장 완료!")
+    const handleClick = () => {
+        alert("수정 완료!")
         submit()
         Navigate('/About')
       }
-    }
+    
 
     const submit = async() => {
       let body = {
@@ -90,17 +85,14 @@ const Create = () => {
         text: inputText,
         teamText: inputTeamText,
         teamName: inputTeamName,
-        id: userId
+        num: state.num
       };
       await axios({
         method : 'post',
-        url: 'http://localhost:5000/Detail/create',
+        url: 'http://localhost:5000/Detail/update',
         data: body
-      }).then((res)=>{
-        console.log(res.data)
       })
     }
-
 
 
   return(
@@ -173,9 +165,9 @@ const Create = () => {
           </tr>
         </tbody>
       </table>
-      <button onClick={handleClick}>작성 완료!</button>
+      <button onClick={handleClick}>수정 완료!</button>
     </div>
   )
 }
 
-export default Create
+export default Update

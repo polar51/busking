@@ -9,6 +9,7 @@ import LoginPage from "./Routers/LoginPage";
 import JoinPage from "./Routers/JoinPage";
 import Detail from "./Routers/Detail";
 import Create from './Routers/Create';
+import Update from './Routers/Update';
 
 
 
@@ -24,11 +25,12 @@ function App() {
       <Routes>
           <Route element={<Layout />}>
             <Route path="/busking" element={<HomePage />} />
-            <Route path="/About" element={<AboutPage />} />
+            <Route path="/About/" element={<AboutPage />} />
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/Join" element={<JoinPage />} />
             <Route path="/Detail/:num" element={<Detail />} />
             <Route path="/Detail/Create" element={<Create />} />
+            <Route path='/Detail/Update' element={<Update />} />
           </Route>
         </Routes>
   );

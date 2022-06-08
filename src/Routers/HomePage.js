@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import ReactPlayer from 'react-player/lazy';
 import styles from "./HomePage.module.css"
 import axios from 'axios';
 
 function HomePage() {
-
+  const navigate = useNavigate();
   const [content, setContent] = useState([]);
   const getList = async () => {
     const res = await (
-      await axios.get("http://localhost:5000/list")
+      await axios.get("http://localhost:5000/allList")
     );
     setContent(res.data.reverse())
   };
+
+
+  let list =  content.map((listItem) => (
+    <tr key={listItem.num} onClick={() => {navigate(`/Detail/${listItem.num}`,{state: listItem})}}>
+          <td>{listItem.type}</td>
+          <td>{listItem.title}</td>
+          <td>{listItem.teamName}</td>
+          <td>{listItem.date}</td>
+        </tr>
+  ))
+
 
   useEffect(() => {
     getList()
@@ -36,14 +48,7 @@ function HomePage() {
           </tr>
         </thead>
         <tbody>
-        {content.map((listItem, idx) => (
-            <tr key={content[idx].num}>
-                <td>{content[idx].type}</td>
-                <td>{content[idx].title}</td>
-                <td>{content[idx].teamName}</td>
-                <td>{content[idx].date}</td>
-              </tr>
-          ))}
+        {list}
         </tbody>
       </table>
       <table className={styles.Table}>
@@ -62,14 +67,7 @@ function HomePage() {
           </tr>
         </thead>
         <tbody>
-        {content.map((listItem, idx) => (
-            <tr key={content[idx].num}>
-                <td>{content[idx].type}</td>
-                <td>{content[idx].title}</td>
-                <td>{content[idx].teamName}</td>
-                <td>{content[idx].date}</td>
-              </tr>
-          ))}
+        {list}
           
         </tbody>
       </table>

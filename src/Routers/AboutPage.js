@@ -1,20 +1,53 @@
 import styles from "./AboutPage.module.css"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import Pagination from "react-js-pagination"
 
 function AboutPage() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const [serchInput, setSerchInput] = useState("");
   const [content, setContent] = useState([]);
-  const getList = async () => {
+  const { state } = useLocation();
+
+
+  //게시판 불러오기
+  const listType = () => {
+    if(state === 1){
+      getAllList()
+    } else if (state === 2){
+      getMusicList()
+    } else {
+      getArtList()
+    }
+  }
+
+
+  const getAllList = async () => {
     const res = await (
-      await axios.get("http://localhost:5000/list")
+      await axios.get("http://localhost:5000/allList")
+    );
+    setContent(res.data.reverse())
+  };
+
+  const getMusicList = async () => {
+    const res = await (
+      await axios.get("http://localhost:5000/musicList")
+    );
+    setContent(res.data.reverse())
+  };
+
+  const getArtList = async () => {
+    const res = await (
+      await axios.get("http://localhost:5000/artList")
     );
     setContent(res.data.reverse())
   };
 
 
+
+
+  //불러온 게시판 뿌려주기
   let list =  content.map((listItem) => (
     <tr key={listItem.num} onClick={() => {navigate(`/Detail/${listItem.num}`,{state: listItem})}}>
           <td>{listItem.type}</td>
@@ -24,12 +57,19 @@ function AboutPage() {
         </tr>
   ))
   
-  
+  //글쓰기 이벤트
   const GoCreate = () => {
     navigate('/Detail/Create')
   }
 
-  
+  const loginBoard = () => {
+    const id = sessionStorage.getItem('loginId')
+    if(id !== null) 
+    return <button onClick={GoCreate}>글쓰기</button>
+  }
+
+
+  //페이지 이동
     const [page, setPage] = useState(1);
   
     const handlePageChange = (page) => {
@@ -37,10 +77,18 @@ function AboutPage() {
     };
 
 
+  // 검색기능
+  const handleSerchInput = (e) => {
+    setSerchInput(e.target.value)
+  };
+  
+  const serchBtn = () => {
+    
+  }
 
 
   useEffect(() => {
-    getList()
+    listType()
   },[list]);
   
 
@@ -53,10 +101,8 @@ function AboutPage() {
     <div className={styles.Body}>
       <div className={styles.MainCont}>
         <div className={styles.SerchCont}>
-          <form>
-            <input type="text" name="serch"/>
-            <input type="submit" value="검색" />
-          </form>
+            <input type="text" name="serch" onChange={handleSerchInput}/>
+            <button>검색</button>
         </div>
         <div className={styles.TableCont}>
         <table className={styles.Table}>
@@ -89,7 +135,7 @@ function AboutPage() {
         />
         </div>
       </div>
-        <button onClick={GoCreate}>글쓰기</button>
+        {loginBoard()}
     </div>
   )
 }

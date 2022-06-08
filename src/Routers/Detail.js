@@ -7,6 +7,7 @@ import axios from 'axios';
 
 
 function Detail() {
+  let sessionStorage = window.sessionStorage;
   const { state } = useLocation();
   const navigate = useNavigate();
   
@@ -17,6 +18,47 @@ function Detail() {
   const [des, setDes] = useState('');
   const [icon, setIcon] = useState('');
   const key = "8f175046fe367b6d5bfe46997ea542c8";
+
+
+//로그인후 버튼 생성 기능
+
+  const handleUpdate = () => {
+      navigate("/Detail/Update", {state:state});
+  };
+
+  const handleDelete = async() => {
+    let body = {
+      num : state.num
+    }
+    const deleteConfirm = window.confirm('정말 삭제하시겠습니까?')
+    if(deleteConfirm){
+      await axios({
+        method: 'post',
+        url: 'http://localhost:5000/Detail/delete',
+        data: body
+      })
+    }
+  }
+
+  const handleDeleteBtn = () => {
+    handleDelete();
+    navigate('/About')
+  }
+
+  const loginBtn = () => {
+    let id = sessionStorage.getItem('loginId');
+    let checkId = state.id;
+    if(id === checkId) 
+      return <button onClick={handleUpdate}>수정</button>
+  }
+  const loginBtn2 = () => {
+    let id = sessionStorage.getItem('loginId');
+    let checkId = state.id;
+    if(id === checkId) 
+      return <button onClick={handleDeleteBtn}>삭제</button>
+  }
+
+
 
   const getCoords = () => {
     if(state.place === "홍대"){
@@ -65,10 +107,6 @@ function Detail() {
     }
   }
 
-
-
-
-
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=kr`;
 
   const getWeather = async(lat, lon) => {
@@ -88,9 +126,9 @@ function Detail() {
   
   
   useEffect(()=>{
-    getCoords();
-    getWeather();
-    weatherIcon()
+    // getCoords();
+    // getWeather();
+    // weatherIcon()
   },[])
 
 
@@ -124,9 +162,11 @@ function Detail() {
         </tbody>
       </table>
       <div>
+        {loginBtn()}
+        {loginBtn2()}
         <p>{temp}</p>
         <p>{des}</p>
-        <img src={weatherIcon()} />
+        {/* <img src={weatherIcon()} /> */}
         {/* 컴포넌트를 만들어야할수도..? */}
       </div>
     </div>

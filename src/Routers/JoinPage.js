@@ -16,15 +16,14 @@ function JoinPage() {
   const [ checkId, setCheckId] = useState(false)
 
 
-  const [inputIdError, setInputIdError] = useState(false)
   const [inputPwError, setInputPwError] = useState(false)
   
   
   
   const handleInputId = (e) => {
     const userIdRegex = /^[A-Za-z0-9+]{11,}$/;
-    if (userIdRegex.test(e.target.value)) {setInputIdError(false);}
-        else {setInputIdError(true)
+    if (userIdRegex.test(e.target.value)) {}
+        else {
         setInputId(e.target.value);}
   };
   
@@ -110,11 +109,9 @@ function JoinPage() {
         method : 'post',
         url: 'http://localhost:5000/Join/create',
         data: body
-      }).then((res)=>{
-        console.log(res.data)
       })
     } else {
-      alert("아이디와 비밀번호를 확인해주세요!")
+      alert("ID 중복 체크를 먼저 눌러주세요!")
       e.preventDefault()
     }
     }

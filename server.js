@@ -38,8 +38,32 @@ app.put('/getData', (req, res)=>{
 })
 
 
-app.get("/list", (req,res)=> {
+app.get("/allList", (req,res)=> {
   let sql = "SELECT * FROM board";
+  connection.query(sql, (err, data)=>{
+    if(err){
+      console.log(err)
+      res.send(err)
+    } else {
+      res.send(data)
+    }
+  });
+});
+
+app.get("/musicList", (req,res)=> {
+  let sql = 'SELECT * FROM board WHERE type="춤"or type="노래" or type="밴드"';
+  connection.query(sql, (err, data)=>{
+    if(err){
+      console.log(err)
+      res.send(err)
+    } else {
+      res.send(data)
+    }
+  });
+});
+
+app.get("/artList", (req,res)=> {
+  let sql = 'SELECT * FROM board WHERE type="연기" or type="미술" or type="마술" or type="공연예술" or type="행위예술" or type="스피치"';
   connection.query(sql, (err, data)=>{
     if(err){
       console.log(err)
@@ -52,9 +76,31 @@ app.get("/list", (req,res)=> {
 
 
 
+
+
+app.post('/Detail/delete', (req, res) => {
+  let sql = 'DELETE FROM board WHERE num=?'
+  let params = req.body.num;
+  connection.query(sql, params, (err)=>{
+    if(err){
+      console.log(err)
+    }
+  })
+})
+
+app.post("/Detail/update", (req, res) => {
+  let sql = 'UPDATE board SET title=?,type=?,date=?,place=?,text=?,teamName=?,teamText=? WHERE num=?'
+  let params = [req.body.title, req.body.type, req.body.date, req.body.place, req.body.text, req.body.teamName, req.body.teamText, req.body.num]
+  connection.query(sql, params, (err, rows, fields)=> {
+    if(err){
+      console.log(err)
+    }
+  })
+})
+
 app.post("/Detail/create", (req,res) => {
-  let sql = 'INSERT INTO board (title, type, date, place, text, teamName, teamText) VALUES(?,?,?,?,?,?,?)';
-  let params = [req.body.title, req.body.type, req.body.date, req.body.place, req.body.text, req.body.teamName, req.body.teamText]
+  let sql = 'INSERT INTO board (title, type, date, place, text, teamName, teamText, id) VALUES(?,?,?,?,?,?,?,?)';
+  let params = [req.body.title, req.body.type, req.body.date, req.body.place, req.body.text, req.body.teamName, req.body.teamText, req.body.id]
   connection.query(sql, params, function(err, rows, fields){
     if(err){
       console.log(err)
