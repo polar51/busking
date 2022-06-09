@@ -36,13 +36,13 @@ function Detail() {
         method: 'post',
         url: 'http://localhost:5000/Detail/delete',
         data: body
-      })
+      }).then(navigate(-1))
     }
   }
 
   const handleDeleteBtn = () => {
     handleDelete();
-    navigate('/About')
+    
   }
 
   const loginBtn = () => {
@@ -58,6 +58,9 @@ function Detail() {
       return <button onClick={handleDeleteBtn}>삭제</button>
   }
 
+
+
+  // 날씨 API 입니다.
 
 
   const getCoords = () => {
@@ -107,9 +110,10 @@ function Detail() {
     }
   }
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=kr`;
 
-  const getWeather = async(lat, lon) => {
+  
+  const getWeather = async() => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=kr`;
     await axios.get(url)
     .then(resData => {
       setTemp(resData.data.main.temp)
@@ -123,12 +127,14 @@ function Detail() {
     return iconUrl
   }
 
-  
+  const weather = () => {
+    return new Promise((res, rej) => {
+      getCoords()
+    })
+  }
   
   useEffect(()=>{
-    // getCoords();
-    // getWeather();
-    // weatherIcon()
+    weather().then(getWeather())
   },[])
 
 

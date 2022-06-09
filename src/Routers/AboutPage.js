@@ -5,20 +5,26 @@ import { useNavigate,useLocation } from "react-router-dom";
 import Pagination from "react-js-pagination"
 
 function AboutPage() {
+  const { state } = useLocation();
   const navigate = useNavigate();
   const [serchInput, setSerchInput] = useState("");
   const [content, setContent] = useState([]);
-  const { state } = useLocation();
+  const [inputSelect, setInputSelect] = useState("title");
+  const items = 10;
+  const [page, setPage] = useState(1);
+
+
+
 
 
   //게시판 불러오기
   const listType = () => {
-    if(state === 1){
-      getAllList()
+    if(state === 3){
+      getArtList()
     } else if (state === 2){
       getMusicList()
     } else {
-      getArtList()
+      getAllList()
     }
   }
 
@@ -48,14 +54,26 @@ function AboutPage() {
 
 
   //불러온 게시판 뿌려주기
-  let list =  content.map((listItem) => (
-    <tr key={listItem.num} onClick={() => {navigate(`/Detail/${listItem.num}`,{state: listItem})}}>
-          <td>{listItem.type}</td>
-          <td>{listItem.title}</td>
-          <td>{listItem.teamName}</td>
-          <td>{listItem.date}</td>
-        </tr>
-  ))
+
+
+  const handlePageChange = (page) => {
+    setPage(page);
+  }
+
+
+  let list = () => content.slice(
+    items*(page-1),
+    items*(page-1)+items
+  ).map((listItem) => {
+    return <tr key={listItem.num} onClick={() => {navigate(`/Detail/${listItem.num}`,{state: listItem})}}>
+    <td>{listItem.type}</td>
+    <td>{listItem.title}</td>
+    <td>{listItem.teamName}</td>
+    <td>{listItem.date}</td>
+  </tr>
+  })
+
+
   
   //글쓰기 이벤트
   const GoCreate = () => {
@@ -69,27 +87,37 @@ function AboutPage() {
   }
 
 
-  //페이지 이동
-    const [page, setPage] = useState(1);
-  
-    const handlePageChange = (page) => {
-      setPage(page);
-    };
 
 
   // 검색기능
+  const handleSelect = (e) => {
+    setInputSelect(e.target.value)
+  };
+
+
   const handleSerchInput = (e) => {
     setSerchInput(e.target.value)
   };
   
   const serchBtn = () => {
-    
+    let body = {
+      select: inputSelect,
+      serchKeyword: serchInput
+    }
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/About/serch',
+      data: body
+    }).then((rows) => {
+      setContent(rows.data)
+    })
   }
 
 
   useEffect(() => {
     listType()
-  },[list]);
+    list()
+  },[list()]);
   
 
 
@@ -101,8 +129,15 @@ function AboutPage() {
     <div className={styles.Body}>
       <div className={styles.MainCont}>
         <div className={styles.SerchCont}>
+            <select value={inputSelect} onChange={handleSelect}>
+              <option value="title">제목</option>
+              <option value="type">공연형태</option>
+              <option value="place">장소</option>
+              <option value="text">내용</option>
+              <option value="teamName">공연팀이름</option>
+            </select>
             <input type="text" name="serch" onChange={handleSerchInput}/>
-            <button>검색</button>
+            <button onClick={serchBtn}>검색</button>
         </div>
         <div className={styles.TableCont}>
         <table className={styles.Table}>
@@ -116,18 +151,18 @@ function AboutPage() {
           <tr>
             <th>공연형태</th>
             <th>제목</th>
-            <th>작성자</th>
+            <th>공연팀이름</th>
             <th>공연날짜</th>
           </tr>
         </thead>
         <tbody>
-          {list}
+          {list()}
         </tbody>
       </table>
       <Pagination
         activePage={page}
-        itemsCountPerPage={5}
-        totalItemsCount={450}
+        itemsCountPerPage={items}
+        totalItemsCount={content.length}
         pageRangeDisplayed={5}
         prevPageText={"‹"}
         nextPageText={"›"}

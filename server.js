@@ -3,9 +3,12 @@ const app = express();
 const port = 5000; 
 const cors = require("cors");
 const mysql = require("mysql"); 
+const cookieParser = require('cookie-parser')
 
 
-
+app.use(
+  cookieParser(process.env.COOKIE_SECRET, { sameSite: "none", secure: true })
+);
 
 const connection = mysql.createConnection({
   connectTimeout : 10,
@@ -75,7 +78,16 @@ app.get("/artList", (req,res)=> {
 });
 
 
-
+app.post("/About/serch", (req, res) => {
+  let sql = 'SELECT * FROM board WHERE '+req.body.select +' Like' + connection.escape('%'+req.body.serchKeyword+'%')
+  connection.query(sql, (err, rows)=> {
+    if(err){
+      console.log(err)
+    } else {
+      res.send(rows)
+    }
+  })
+})
 
 
 app.post('/Detail/delete', (req, res) => {

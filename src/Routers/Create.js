@@ -73,11 +73,11 @@ const Create = () => {
     const handleClick = async(e) => {
       if(inputTitle === "" && inputTeamName === "" && inputText === ""){
         alert("작성 내용이 없어 저장된 내용 없이 이전 화면으로 돌아갑니다")
-        Navigate('/About')
+        Navigate(-1)
       } else {
         alert("저장 완료!")
         submit()
-        Navigate('/About')
+        Navigate(-1)
       }
     }
 
