@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import styles from "./HomePage.module.css"
 import axios from 'axios';
 import Pagination from "react-js-pagination"
+import { Table } from 'react-bootstrap';
 
 
 function HomePage() {
   const navigate = useNavigate();
-  const [content, setContent] = useState([]);
+  const [musicContent, setMusicContent] = useState([]);
+  const [artContent, setArtContent] = useState([]);
   const items = 5;
   const [page, setPage] = useState(1);
 
@@ -19,7 +21,19 @@ function HomePage() {
     setPage(page);
   }
 
-  let list = content.slice(
+  let musicList = musicContent.slice(
+    items*(page-1),
+    items*(page-1)+items
+  ).map((listItem) => {
+    return <tr key={listItem.num} onClick={() => {navigate(`/Detail/${listItem.num}`,{state: listItem})}}>
+    <td>{listItem.type}</td>
+    <td>{listItem.title}</td>
+    <td>{listItem.teamName}</td>
+    <td>{listItem.date}</td>
+  </tr>
+  })
+
+  let artList = artContent.slice(
     items*(page-1),
     items*(page-1)+items
   ).map((listItem) => {
@@ -34,24 +48,31 @@ function HomePage() {
 
 
 
-  const getList = async () => {
+  const getMusicList = async () => {
     const res = await (
-      await axios.get("http://localhost:5000/allList")
+      await axios.get("http://localhost:5000/musicList")
     );
-    setContent(res.data.reverse())
+    setMusicContent(res.data.reverse())
+  };
+
+  const getArtList = async () => {
+    const res = await (
+      await axios.get("http://localhost:5000/artList")
+    );
+    setArtContent(res.data.reverse())
   };
 
 
 
-
   useEffect(() => {
-    getList()
+    getMusicList()
+    getArtList()
   },[]);
   
 
   return(
     <div className={styles.Body}>
-      <table className={styles.Table}>
+      <Table striped bordered hover size="sm" className={styles.Table}>
         <colgroup>
         <col width="100px" />
         <col width="500px" />
@@ -67,19 +88,19 @@ function HomePage() {
           </tr>
         </thead>
         <tbody>
-        {list}
+        {musicList}
         </tbody>
-      </table>
+      </Table>
       <Pagination
         activePage={page}
         itemsCountPerPage={items}
-        totalItemsCount={content.length}
+        totalItemsCount={musicList.length}
         pageRangeDisplayed={5}
         prevPageText={"‹"}
         nextPageText={"›"}
         onChange={handlePageChange}
         />
-      <table className={styles.Table}>
+      <Table striped bordered hover size="sm" className={styles.Table}>
         <colgroup>
         <col width="100px" />
         <col width="500px" />
@@ -95,14 +116,14 @@ function HomePage() {
           </tr>
         </thead>
         <tbody>
-        {list}
+        {artList}
           
         </tbody>
-      </table>
+      </Table>
       <Pagination
         activePage={page}
         itemsCountPerPage={items}
-        totalItemsCount={content.length}
+        totalItemsCount={artContent.length}
         pageRangeDisplayed={5}
         prevPageText={"‹"}
         nextPageText={"›"}

@@ -12,8 +12,8 @@ function Detail() {
   const navigate = useNavigate();
   
         // 날씨 api 관련 부분입니다.
-  const [lat, setLat] = useState('');
-  const [lon, setLon] = useState('');
+  // const [lat, setLat] = useState('');
+  // const [lon, setLon] = useState('');
   const [temp, setTemp] = useState('');
   const [des, setDes] = useState('');
   const [icon, setIcon] = useState('');
@@ -64,56 +64,59 @@ function Detail() {
 
 
   const getCoords = () => {
+    let lat = 0
+    let lon = 0
     if(state.place === "홍대"){
-      setLat("37.5580798")
-      setLon("126.9255336")
+      lat =  37.5580798;
+      lon =  126.9255336;
     }
-    if(state.place === "대학로"){
-      setLat("37.580453")
-      setLon("127.001983")
+    else if(state.place === "대학로"){
+      lat =  37.580453
+      lon = 127.001983
     }
-    if(state.place === "신촌"){
-      setLat("37.557310")
-      setLon("126.936880")
+    else if(state.place === "신촌"){
+      lat = 37.557310
+      lon = 126.936880
     }
-    if(state.place === "한강공원"){
-      setLat("37.557310")
-      setLon("126.936880")
+    else if(state.place === "한강공원"){
+      lat = 37.557310
+      lon = 126.936880
     }
-    if(state.place === "건대"){
-      setLat("37.557310")
-      setLon("126.936880")
+    else if(state.place === "건대"){
+      lat = 37.557310
+      lon = 126.936880
     }
-    if(state.place === "해운대"){
-      setLat("35.159458")
-      setLon("129.160239")
+    else if(state.place === "해운대"){
+      lat = 35.159458
+      lon = 129.160239
     }
-    if(state.place === "서면"){
-      setLat("35.159458")
-      setLon("129.160239")
+    else if(state.place === "서면"){
+      lat = 35.159458
+      lon = 129.160239
     }
-    if(state.place === "남포동"){
-      setLat("35.097523")
-      setLon("129.030636")
+    else if(state.place === "남포동"){
+      lat = 35.097523
+      lon = 129.030636
     }
-    if(state.place === "동성로"){
-      setLat("35.870874")
-      setLon("128.594816")
+    else if(state.place === "동성로"){
+      lat = 35.870874
+      lon = 128.594816
     }
-    if(state.place === "김광석거리"){
-      setLat("35.859662")
-      setLon("128.606574")
+    else if(state.place === "김광석거리"){
+      lat = 35.859662
+      lon = 128.606574
     }
-    if(state.place === "수성못"){
-      setLat("35.828859")
-      setLon("128.619917")
+    else if(state.place === "수성못"){
+      lat = 35.828859
+      lon = 128.619917
     }
+    return {lat, lon}
   }
 
 
   
-  const getWeather = async() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=kr`;
+  const getWeather = async(coords) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${key}&units=metric&lang=kr`;
     await axios.get(url)
     .then(resData => {
       setTemp(resData.data.main.temp)
@@ -127,14 +130,9 @@ function Detail() {
     return iconUrl
   }
 
-  const weather = () => {
-    return new Promise((res, rej) => {
-      getCoords()
-    })
-  }
-  
+
   useEffect(()=>{
-    weather().then(getWeather())
+    getWeather(getCoords())
   },[])
 
 
@@ -172,8 +170,7 @@ function Detail() {
         {loginBtn2()}
         <p>{temp}</p>
         <p>{des}</p>
-        {/* <img src={weatherIcon()} /> */}
-        {/* 컴포넌트를 만들어야할수도..? */}
+        <img src={weatherIcon()} />
       </div>
     </div>
   )

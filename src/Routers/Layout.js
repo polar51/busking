@@ -1,6 +1,7 @@
 import styles from "./Layout.module.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import { Button } from "react-bootstrap";
 
 function Layout() {
   let sessionStorage = window.sessionStorage;
@@ -29,9 +30,9 @@ function Layout() {
   const loginLogout = () => {
     let id = sessionStorage.getItem('loginId')
     if(id === null) {
-      return <button className={styles.Hbtn} onClick={handleLogin}>Login</button>
+      return <Button variant="outline-secondary" size="lg" className={styles.Hbtn} onClick={handleLogin}>Login</Button>
     } else {
-      return <button className={styles.Hbtn} onClick={handleLogout}>Logout</button>
+      return <Button variant="outline-warning" size="lg" className={styles.Hbtn} onClick={handleLogout}>Logout</Button>
     }
   }
 

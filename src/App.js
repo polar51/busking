@@ -10,6 +10,7 @@ import JoinPage from "./Routers/JoinPage";
 import Detail from "./Routers/Detail";
 import Create from './Routers/Create';
 import Update from './Routers/Update';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
