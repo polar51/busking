@@ -1,10 +1,9 @@
 :root{
   /* 색상 */
-  --btn-Color:#F2C94C;
-  --btn-pointColor:#f2984ad7;
-  --bg-Color:#FFFFFF;
-  --footer-bgColor:#1d0707;
-  --footer-Color:#beadad;
+  --font-color:#F2F2F2;
+  --font-downColor:#565656;
+  --bg-color:#000000;
+
   /* 폰트사이즈 */
   --font-xs:12px;
   --font-s:15px;
@@ -13,13 +12,26 @@
   --font-xl:32px;
 }
 
+@font-face {
+  font-family: 'Happiness-Sans-Title';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
 /* Layout */
 
 .Layout{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: 'Happiness-Sans-Title';
 }
 
 
@@ -30,7 +42,6 @@
 .Header{
   margin-top: 20px;
   padding: 20px;
-  /* position: relative; */
 }
 
 .Header .inner{
@@ -38,33 +49,34 @@
 }
 
 .Hh1{
-  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: left;
   font-size: var(--font-xl);
 } 
 
-.Hbtn{
-  position: absolute;
-  right: 10px;
-  top:0px;
-  padding: 8px 50px;
-  cursor: pointer;
+
+
+.Link{
+  color: inherit;
+  text-decoration: inherit;
+}
+.Link:hover{
+  color: var(--font-downColor);
 }
 
-/* section */
 
-/* .section{
-  position: relative;
-} */
 
 /* Nav */
 
 .Nav{
   position: absolute;
   left: 2%;
+  font-size: var(--font-m);
 }
 
+
 .NavUl li{
-  border: var(--btn-Color) 1px solid;
   margin-bottom: 10px;
   border-radius: 0 10px 0 10px;
   padding: 15px 20px;
@@ -76,9 +88,17 @@
 }
 
 .NavUl li:hover{
-  background-color: var(--btn-pointColor);
-  color: var(--bg-Color);
-  transition: all 0.8s;
+  color: var(--font-downColor);
+}
+
+.loginBtn{
+  position: absolute;
+  cursor: pointer;
+  background-color: inherit;
+  color: var(--font-downColor);
+}
+.loginBtn:hover{
+  color: var(--font-color);
 }
 
 
@@ -87,12 +107,6 @@
 .Footer{
   padding: 15px;
   margin-top: auto;
-  background-color: var(--footer-bgColor);
-  color: var(--footer-Color);
+  color: var(--font-downColor);
 }
-
-.Footer p {
-  font-size: var(--font-s);
-}
-
 

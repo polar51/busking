@@ -1,7 +1,6 @@
 import styles from "./Layout.module.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-import { Button } from "react-bootstrap";
+import React, { useEffect } from 'react';
 
 function Layout() {
   let sessionStorage = window.sessionStorage;
@@ -30,9 +29,9 @@ function Layout() {
   const loginLogout = () => {
     let id = sessionStorage.getItem('loginId')
     if(id === null) {
-      return <Button variant="outline-secondary" size="lg" className={styles.Hbtn} onClick={handleLogin}>Login</Button>
+      return <button className={styles.loginBtn} onClick={handleLogin}>로그인</button>
     } else {
-      return <Button variant="outline-warning" size="lg" className={styles.Hbtn} onClick={handleLogout}>Logout</Button>
+      return <button className={styles.loginBtn} onClick={handleLogout}>로그아웃</button>
     }
   }
 
@@ -54,10 +53,9 @@ function Layout() {
       <header className={styles.Header}>
         <div className={styles.inner}>
           <h1 className={styles.Hh1}>
-            <Link to="/busking">거리공연 일정</Link>
+            <Link to="/busking" className={styles.Link}>거리공연 일정</Link>
           </h1>
           {welcome()}
-          {loginLogout()}
         </div>
       </header>
       <section className={styles.section}>
@@ -71,6 +69,9 @@ function Layout() {
                 </li>
                 <li onClick={clickLi} value="3">
                   종합 예술 버스킹 일정
+                </li>
+                <li>
+                  {loginLogout()}
                 </li>
           </ul>
         </nav>
