@@ -64,6 +64,12 @@ function HomePage() {
 
 
 
+  const clickLi = (e) => {
+    let clickedLi = e.target.value
+    navigate('/About',{state:clickedLi})
+  } 
+
+
   useEffect(() => {
     getMusicList()
     getArtList()
@@ -72,63 +78,72 @@ function HomePage() {
 
   return(
     <div className={styles.Body}>
-      <Table striped bordered hover size="sm" className={styles.Table}>
-        <colgroup>
-        <col width="100px" />
-        <col width="500px" />
-        <col width="100px" />
-        <col width="100px" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th>공연형태</th>
-            <th>제목</th>
-            <th>공연팀이름</th>
-            <th>일시</th>
-          </tr>
-        </thead>
-        <tbody>
-        {musicList}
-        </tbody>
-      </Table>
-      <Pagination
-        activePage={page}
-        itemsCountPerPage={items}
-        totalItemsCount={musicList.length}
-        pageRangeDisplayed={5}
-        prevPageText={"‹"}
-        nextPageText={"›"}
-        onChange={handlePageChange}
-        />
-      <Table striped bordered hover size="sm" className={styles.Table}>
-        <colgroup>
-        <col width="100px" />
-        <col width="500px" />
-        <col width="100px" />
-        <col width="100px" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th>공연형태</th>
-            <th>제목</th>
-            <th>공연팀이름</th>
-            <th>일시</th>
-          </tr>
-        </thead>
-        <tbody>
-        {artList}
-          
-        </tbody>
-      </Table>
-      <Pagination
-        activePage={page}
-        itemsCountPerPage={items}
-        totalItemsCount={artContent.length}
-        pageRangeDisplayed={5}
-        prevPageText={"‹"}
-        nextPageText={"›"}
-        onChange={handlePageChange}
-        />
+      <div className={styles.intro}>
+        <h2>버스모아란?</h2>
+        <p>"버스킹" + "모아보기"의 줄임말로 저희 홈페이지를 나타내는 말이자 버스킹 일정이나 정보등을 여러분들에게 모아서 보여줄 수 있는 홈페이지를 만들자는 의미를 가진 단어입니다</p>
+      </div>
+      <div className={styles.musicCont}>
+        <p onClick={clickLi} value="2" className={styles.contBoxP}>음악 관련 버스킹의 일정들을 모아서 보여드립니다!</p>
+        <Table striped bordered hover size="sm" className={styles.Table}>
+          <colgroup>
+          <col width="100px" />
+          <col width="500px" />
+          <col width="100px" />
+          <col width="100px" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>공연형태</th>
+              <th>제목</th>
+              <th>공연팀이름</th>
+              <th>일시</th>
+            </tr>
+          </thead>
+          <tbody>
+          {musicList}
+          </tbody>
+        </Table>
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={items}
+          totalItemsCount={musicList.length}
+          pageRangeDisplayed={5}
+          prevPageText={"‹"}
+          nextPageText={"›"}
+          onChange={handlePageChange}
+          />
+      </div>
+      <div className={styles.artCont}>
+        <p onClick={clickLi} value="3" className={styles.contBoxP}>종합 예술 관련 버스킹 일정들을 모아서 보여드립니다!</p>
+        <Table striped bordered hover size="sm" className={styles.Table}>
+          <colgroup>
+          <col width="100px" />
+          <col width="500px" />
+          <col width="100px" />
+          <col width="100px" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>공연형태</th>
+              <th>제목</th>
+              <th>공연팀이름</th>
+              <th>일시</th>
+            </tr>
+          </thead>
+          <tbody>
+          {artList}
+          </tbody>
+        </Table>
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={items}
+          totalItemsCount={artContent.length}
+          pageRangeDisplayed={5}
+          prevPageText={"‹"}
+          nextPageText={"›"}
+          onChange={handlePageChange}
+          />
+        </div>
       <div className={styles.Video}>
             </div>
     </div>

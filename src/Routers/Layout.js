@@ -9,9 +9,9 @@ function Layout() {
   const welcome = () => {
     let id = sessionStorage.getItem('loginId')
     if(id === null) {
-      
+      return <p className={styles.welcome}>어서오세요!</p>
     } else {
-    return <p>{id + " 님 반갑습니다!"}</p>
+    return <p className={styles.welcome}>{id + " 님 반갑습니다!"}</p>
     }
   }
 
@@ -51,11 +51,11 @@ function Layout() {
   return (
     <div className={styles.Layout}>
       <header className={styles.Header}>
+        {welcome()} 
         <div className={styles.inner}>
           <h1 className={styles.Hh1}>
-            <Link to="/busking" className={styles.Link}>거리공연 일정</Link>
+            <Link to="/busking" className={styles.Link}>버스모아</Link>
           </h1>
-          {welcome()}
         </div>
       </header>
       <section className={styles.section}>
