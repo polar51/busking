@@ -1,10 +1,15 @@
 import styles from "./Layout.module.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 
 function Layout() {
-  let sessionStorage = window.sessionStorage;
   const navigate = useNavigate()
+  const [scrollPosition, setScrollPosition] = useState(0);
+  let sessionStorage = window.sessionStorage;
+
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
 
   const welcome = () => {
     let id = sessionStorage.getItem('loginId')
@@ -45,11 +50,12 @@ function Layout() {
   useEffect(() => {
     welcome()
     loginLogout()
-  },[sessionStorage])
+    window.addEventListener('scroll', updateScroll);
+  },[scrollPosition])
 
 
   return (
-    <div className={styles.Layout}>
+    <div className={`${styles.Layout} ${scrollPosition < 600 ? [styles.Black] : [styles.White]}`}>
       <header className={styles.Header}>
         {welcome()} 
         <div className={styles.inner}>
@@ -59,7 +65,7 @@ function Layout() {
         </div>
       </header>
       <section className={styles.section}>
-        <nav className={styles.Nav}>
+        <nav className={`${styles.Nav}`}>
           <ul className={styles.NavUl}>
                 <li onClick={clickLi} value="1">
                   모든 일정보기

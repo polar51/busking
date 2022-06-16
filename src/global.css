@@ -1,0 +1,28 @@
+:root{
+  /* 색상 */
+  --font-color:#F2F2F2;
+  --font-downColor:#565656;
+  --bg-color:#000000;
+
+  /* 폰트사이즈 */
+  --font-xs:12px;
+  --font-s:15px;
+  --font-m:19px;
+  --font-l:22px;
+  --font-xl:32px;
+}
+
+@font-face {
+  font-family: 'Happiness-Sans-Title';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body{
+  background-color: var(--font-color);
+  color: var(--bg-color);
+}
+
+
+

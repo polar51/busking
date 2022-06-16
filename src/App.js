@@ -14,17 +14,12 @@ import Detail from "./Routers/Detail";
 import Create from './Routers/Create';
 import Update from './Routers/Update';
 import Loading from './Components/Loading';
+import './global.css';
 
 
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  @font-face {
-    font-family: 'Happiness-Sans-Title';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
   body{
     font-family:'Happiness-Sans-Title';
     line-height: 1.5;
@@ -37,7 +32,7 @@ function App() {
   useEffect(()=> {
     setTimeout(()=>{
       setReady(true)
-    },2000)
+    },1000)
   })
 
 

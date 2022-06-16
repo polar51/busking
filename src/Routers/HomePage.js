@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./HomePage.module.css"
 import axios from 'axios';
 import Pagination from "react-js-pagination"
-import { Table } from 'react-bootstrap';
-
 
 function HomePage() {
   const navigate = useNavigate();
@@ -12,10 +10,16 @@ function HomePage() {
   const [artContent, setArtContent] = useState([]);
   const items = 5;
   const [page, setPage] = useState(1);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
 
 
 
+
+
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
 
   const handlePageChange = (page) => {
     setPage(page);
@@ -73,7 +77,8 @@ function HomePage() {
   useEffect(() => {
     getMusicList()
     getArtList()
-  },[]);
+    window.addEventListener('scroll', updateScroll);
+  },[scrollPosition]);
   
 
   return(
@@ -84,7 +89,7 @@ function HomePage() {
       </div>
       <div className={styles.musicCont}>
         <p onClick={clickLi} value="2" className={styles.contBoxP}>음악 관련 버스킹의 일정들을 모아서 보여드립니다!</p>
-        <Table striped bordered hover size="sm" className={styles.Table}>
+        <table className={styles.Table}>
           <colgroup>
           <col width="100px" />
           <col width="500px" />
@@ -102,7 +107,7 @@ function HomePage() {
           <tbody>
           {musicList}
           </tbody>
-        </Table>
+        </table>
         <Pagination
           activePage={page}
           itemsCountPerPage={items}
@@ -115,7 +120,7 @@ function HomePage() {
       </div>
       <div className={styles.artCont}>
         <p onClick={clickLi} value="3" className={styles.contBoxP}>종합 예술 관련 버스킹 일정들을 모아서 보여드립니다!</p>
-        <Table striped bordered hover size="sm" className={styles.Table}>
+        <table className={styles.Table}>
           <colgroup>
           <col width="100px" />
           <col width="500px" />
@@ -133,7 +138,7 @@ function HomePage() {
           <tbody>
           {artList}
           </tbody>
-        </Table>
+        </table>
         <Pagination
           activePage={page}
           itemsCountPerPage={items}

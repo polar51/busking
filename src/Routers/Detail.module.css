@@ -1,17 +1,3 @@
-:root{
-  /* 색상 */
-  --btn-Color:#F2C94C;
-  --btn-pointColor:#f2984ad7;
-  --bg-Color:#FFFFFF;
-  --footer-bgColor:#1d0707;
-  --footer-Color:#beadad;
-  /* 폰트사이즈 */
-  --font-xs:12px;
-  --font-s:15px;
-  --font-m:19px;
-  --font-l:22px;
-  --font-xl:32px;
-}
 
 
 .Body{

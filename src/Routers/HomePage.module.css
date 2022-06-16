@@ -1,30 +1,22 @@
-:root{
-  /* 색상 */
-  --font-color:#F2F2F2;
-  --font-downColor:#565656;
-  --bg-color:#000000;
-
-  /* 폰트사이즈 */
-  --font-xs:12px;
-  --font-s:15px;
-  --font-m:19px;
-  --font-l:22px;
-  --font-xl:32px;
-}
-
-
-
 
 .Body{
   position: absolute;
   left: 20%;
-  width: 100%;
+  width: 80%;
 }
 
-
-.Body div {
+.WhiteBorder{
   border-top: 1px solid var(--font-color);
   border-bottom: 1px solid var(--font-color);
+}
+
+.BlackBorder{
+  border-top: 1px solid var(--bg-color);
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.Body div {
+
   padding: 10% 0 10% 0;
 }
 /* 게시판 */
@@ -53,11 +45,3 @@
   color: var(--font-downColor);
 }
 
-/* 동영상 */
-
-.Video{
-  position: absolute;
-  top: 50%;
-  left: 120%;
-  transform: translate(0,-50%);
-}
