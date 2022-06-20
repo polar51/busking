@@ -83,7 +83,7 @@ function AboutPage() {
   const loginBoard = () => {
     const id = sessionStorage.getItem('loginId')
     if(id !== null) 
-    return <button onClick={GoCreate}>글쓰기</button>
+    return <button onClick={GoCreate} className={styles.btn}>글쓰기</button>
   }
 
 
@@ -142,10 +142,10 @@ function AboutPage() {
         <div className={styles.TableCont}>
         <table className={styles.Table}>
         <colgroup>
-        <col width="100px" />
-        <col width="500px" />
-        <col width="100px" />
-        <col width="100px" />
+        <col width="150px" />
+        <col width="800px" />
+        <col width="200px" />
+        <col width="200px" />
         </colgroup>
         <thead>
           <tr>
@@ -167,6 +167,7 @@ function AboutPage() {
         prevPageText={"‹"}
         nextPageText={"›"}
         onChange={handlePageChange}
+        innerClass={styles.pagination}
         />
         </div>
       </div>

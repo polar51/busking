@@ -49,13 +49,13 @@ function Detail() {
     let id = sessionStorage.getItem('loginId');
     let checkId = state.id;
     if(id === checkId) 
-      return <button onClick={handleUpdate}>수정</button>
+      return <button onClick={handleUpdate} className={styles.btn}>수정</button>
   }
   const loginBtn2 = () => {
     let id = sessionStorage.getItem('loginId');
     let checkId = state.id;
     if(id === checkId) 
-      return <button onClick={handleDeleteBtn}>삭제</button>
+      return <button onClick={handleDeleteBtn} className={styles.btn}>삭제</button>
   }
 
 
@@ -138,7 +138,7 @@ function Detail() {
 
   return(
     <div className={styles.Body}>
-      <button type="button" onClick={() => navigate(-1)}>뒤로가기</button>
+      <button type="button" onClick={() => navigate(-1)} className={styles.backBtn}>뒤로가기</button>
       <table className={styles.Table}>
         <thead>
           <tr>
@@ -157,21 +157,22 @@ function Detail() {
             <td>{state.place}</td>
           </tr>
           <tr>
-            <td colSpan="3">{state.text}</td>
+            <td colSpan="3" className={styles.textBox}>{state.text}</td>
           </tr>
           <tr>
-            <td colSpan="2">{state.teamText}</td>
+            <td colSpan="2" className={styles.teamText}>{state.teamText}</td>
             <td colSpan="1">{state.teamName}</td>
           </tr>
         </tbody>
       </table>
-      <div>
-        {loginBtn()}
-        {loginBtn2()}
-        <p>{temp}</p>
-        <p>{des}</p>
+      <div className={styles.weatherBox}>
+        <p>공연 장소의 현재 날씨입니다!</p>
+        <p>기온: {temp}</p>
+        <p>날씨: {des}</p>
         <img src={weatherIcon()} />
       </div>
+      {loginBtn()}
+      {loginBtn2()}
     </div>
   )
 };

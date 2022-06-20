@@ -122,7 +122,7 @@ function JoinPage() {
         <div className={styles.Id}>
           <label htmlFor='input_id'>ID : </label>
           <input type='text' name='input_id' value={inputId} onChange={handleInputId} />
-          <button type='button' onClick={handleCheckId}>중복확인</button>
+          <button type='button' onClick={handleCheckId}className={styles.checkBtn}>중복확인</button>
         </div>
         <div className={styles.Pw} >
           <label htmlFor='input_PW' >PW : </label>
@@ -147,7 +147,7 @@ function JoinPage() {
           <input type="tel" name='input_PhoneNumber' placeholder='-를 제외한 숫자만 입력해주세요'onChange={handleInputPNumber} maxLength="12" />
         </div>
         <div className={styles.btn}>
-          <Link to="/Login"><button type='button' onClick={handleClick}>가입</button></Link>
+          <Link to="/Login"><button type='button' onClick={handleClick} className={styles.joinBtn}>가입</button></Link>
         </div>
     </div>
   )

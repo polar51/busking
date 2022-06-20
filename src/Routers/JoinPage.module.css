@@ -1,28 +1,16 @@
-:root{
-  /* 색상 */
-  --btn-Color:#F2C94C;
-  --btn-pointColor:#f2984ad7;
-  --bg-Color:#FFFFFF;
-  --footer-bgColor:#1d0707;
-  --footer-Color:#beadad;
-  /* 폰트사이즈 */
-  --font-xs:12px;
-  --font-s:15px;
-  --font-m:19px;
-  --font-l:22px;
-  --font-xl:32px;
-}
-
 
 .Body{
   position: absolute;
   top: 50%;
-  left: 40%;
-  transform: translate(-20%,-50%);
-  border: 1px solid black;
-  padding: 20px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid var(--bg-color);
+  padding: 40px;
 }
 
+.Body input {
+  border: 1px solid var(--bg-color);
+}
 
 .Title{
   font-size: var(--font-l);
@@ -50,4 +38,19 @@
 .PhoneNumber input::-webkit-outer-spin-button,
 .PhoneNumber input::-webkit-inner-spin-button{
   -webkit-appearance: none;
+}
+
+/* 버튼 */
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.joinBtn {
+  padding: 5px 40px;
+}
+
+.checkBtn {
+  padding: 0 20px;
 }

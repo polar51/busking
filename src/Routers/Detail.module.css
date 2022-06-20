@@ -3,17 +3,73 @@
 .Body{
   position: absolute;
   top: 50%;
-  left: 40%;
-  transform: translate(-20%,-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .Table{
-  border: 1px solid black;
+  border: 1px solid var(--bg-color);
   width: 900px;
 }
 
-.Table * {
-  border: 1px solid black;
+.Table th {
   text-align: center;
   padding: 15px;
+}
+
+
+.Table td {
+  border: 1px solid var(--bg-color);
+  text-align: center;
+  padding: 15px;
+}
+
+
+/* TD 상세 조정 */
+
+tbody tr .textBox {
+  height: 20vh;
+  text-align: left;
+}
+
+.teamText {
+  height: 10vh;
+  line-height: 150px;
+}
+
+/* 버튼 */
+
+
+
+.btn {
+  margin-top: 20px;
+  padding: 5px 20px;
+}
+
+.btn:first-child{
+  margin-right: 30px;
+}
+
+.backBtn {
+  padding: 5px 20px;
+  margin-bottom: 15px;
+}
+
+
+/* 날씨 */
+
+
+.weatherBox{
+  border: 1px solid var(--bg-color);
+  margin-top: 50px;
+  text-align: center;
+}
+
+.weatherBox p:first-child{
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.weatherBox img{
+  width: 100px;
 }

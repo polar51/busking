@@ -2,10 +2,10 @@
 .Body{
   position: absolute;
   top: 50%;
-  left: 40%;
-  transform: translate(-0%,-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
   border: 1px solid black;
-  padding: 30px;
+  padding: 50px;
 }
 
 .title{
@@ -15,11 +15,11 @@
 }
 
 .Id{
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .Pw{
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .btn{
@@ -27,7 +27,8 @@
 
 }
 
-.btn button:first-child{
-  margin-right: 5px;
+.btn {
+  display: flex;
+  justify-content: space-evenly;
 }
 

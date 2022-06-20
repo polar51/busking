@@ -1,15 +1,13 @@
 import styles from "./Layout.module.css";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect,useState } from 'react';
 
 function Layout() {
+  const location = useLocation()
   const navigate = useNavigate()
-  const [scrollPosition, setScrollPosition] = useState(0);
   let sessionStorage = window.sessionStorage;
+  const onBusking = location.pathname;
 
-  const updateScroll = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  };
 
   const welcome = () => {
     let id = sessionStorage.getItem('loginId')
@@ -50,12 +48,11 @@ function Layout() {
   useEffect(() => {
     welcome()
     loginLogout()
-    window.addEventListener('scroll', updateScroll);
-  },[scrollPosition])
+  },[sessionStorage])
 
 
   return (
-    <div className={`${styles.Layout} ${scrollPosition < 600 ? [styles.Black] : [styles.White]}`}>
+    <div className={`${styles.Layout} ${onBusking === "/busking" ? [styles.Black] : [styles.White]}`}>
       <header className={styles.Header}>
         {welcome()} 
         <div className={styles.inner}>
@@ -65,7 +62,7 @@ function Layout() {
         </div>
       </header>
       <section className={styles.section}>
-        <nav className={`${styles.Nav}`}>
+        <nav className={styles.Nav}>
           <ul className={styles.NavUl}>
                 <li onClick={clickLi} value="1">
                   모든 일정보기
@@ -81,8 +78,8 @@ function Layout() {
                 </li>
           </ul>
         </nav>
-        <Outlet />
       </section>
+      <Outlet />
       <footer className={styles.Footer}>
           <p>
           Copyright 2021. Won Daehan All pictures cannot be copied without permission.

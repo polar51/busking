@@ -19,10 +19,14 @@
   font-style: normal;
 }
 
-html, body{
+html, body, #root{
   background-color: var(--font-color);
   color: var(--bg-color);
+  height: 100%;
 }
 
 
 
+a{
+  text-decoration: none;
+}

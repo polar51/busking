@@ -3,8 +3,8 @@
 .Body{
   position: absolute;
   top: 50%;
-  left: 40%;
-  transform: translate(-20%,-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .Table{
@@ -15,8 +15,91 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   text-align: center;
+  padding: 10px 0;
 }
 
 .Table th{
   border: 1px solid black;
+}
+
+
+/* 서치바 */
+
+.SerchCont select {
+  margin-right: 10px;
+  border: 1px solid var(--bg-color);
+}
+
+.SerchCont input {
+  margin-right: 10px;
+  border: 1px solid var(--bg-color);
+}
+
+/* 버튼 */
+
+.btn {
+  padding: 5px 10px;
+}
+
+.SerchCont button {
+  padding: 3px 15px;
+}
+
+
+
+/* 페이징 */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.pagination li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--font-downColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+ul.pagination li:first-child{
+  border-radius: 5px 0 0 5px;
+}
+
+ul.pagination li:last-child{
+  border-radius: 0 5px 5px 0;
+}
+
+ul.pagination li a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+ul.pagination li.active a {
+  color: white;
+}
+
+ul.pagination li.active {
+  background-color: var(--font-downColor);
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+  color: var(--font-downColor);
+}
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: var(--bg-color);
 }

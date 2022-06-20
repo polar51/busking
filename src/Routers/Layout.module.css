@@ -2,14 +2,11 @@
 
 /* Layout */
 
-
-
 .Layout{
-  /* min-width: 100vw; */
-  min-height: 200vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  transition: all ease 2s;
+  transition: all 2s;
 }
 .Black{
   background-color: var(--bg-color);
@@ -52,12 +49,14 @@
 /* section */
 .section {
   position: relative;
+  height: 100% ;
 }
 
 
 /* Nav */
 
 .Nav{
+  display: flex;
   position: absolute;
   left: 2%;
   font-size: var(--font-m);
@@ -95,6 +94,7 @@
   right: 1%;
   top: 2%;
 }
+
 
 /* Footer */
 

@@ -83,18 +83,18 @@ function HomePage() {
 
   return(
     <div className={styles.Body}>
-      <div className={styles.intro}>
+      <div className={`${styles.intro} ${scrollPosition<200 ? [styles.WhiteBorder] : [styles.BlackBorder]} `}>
         <h2>버스모아란?</h2>
         <p>"버스킹" + "모아보기"의 줄임말로 저희 홈페이지를 나타내는 말이자 버스킹 일정이나 정보등을 여러분들에게 모아서 보여줄 수 있는 홈페이지를 만들자는 의미를 가진 단어입니다</p>
       </div>
-      <div className={styles.musicCont}>
+      <div className={`${styles.musicContent} ${scrollPosition<200 ? [styles.WhiteBorder] : [styles.BlackBorder]} `}>
         <p onClick={clickLi} value="2" className={styles.contBoxP}>음악 관련 버스킹의 일정들을 모아서 보여드립니다!</p>
         <table className={styles.Table}>
           <colgroup>
           <col width="100px" />
-          <col width="500px" />
-          <col width="100px" />
-          <col width="100px" />
+          <col width="400px" />
+          <col width="130px" />
+          <col width="130px" />
           </colgroup>
           <thead>
             <tr>
@@ -116,16 +116,17 @@ function HomePage() {
           prevPageText={"‹"}
           nextPageText={"›"}
           onChange={handlePageChange}
+          innerClass={styles.pagination}
           />
       </div>
-      <div className={styles.artCont}>
+      <div className={`${styles.artContent} ${scrollPosition<200 ? [styles.WhiteBorder] : [styles.BlackBorder]} `}>
         <p onClick={clickLi} value="3" className={styles.contBoxP}>종합 예술 관련 버스킹 일정들을 모아서 보여드립니다!</p>
         <table className={styles.Table}>
           <colgroup>
           <col width="100px" />
-          <col width="500px" />
-          <col width="100px" />
-          <col width="100px" />
+          <col width="400px" />
+          <col width="130px" />
+          <col width="130px" />
           </colgroup>
           <thead>
             <tr>
@@ -147,10 +148,9 @@ function HomePage() {
           prevPageText={"‹"}
           nextPageText={"›"}
           onChange={handlePageChange}
+          innerClass={styles.pagination}
           />
         </div>
-      <div className={styles.Video}>
-            </div>
     </div>
   )
 }
