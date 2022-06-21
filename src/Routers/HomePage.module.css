@@ -1,9 +1,7 @@
 
 
 .Body{
-  position: absolute;
-  left: 20%;
-  width: 80%;
+  height: 100%;
 }
 
 .WhiteBorder{
@@ -17,13 +15,14 @@
 }
 
 .Body div:first-child{
-  padding: 8% 0 8% 0;
+  padding: 10% 0 10% 0;
 }
 .Body div {
-  padding: 2% 0 2% 0;
+  padding: 10% 0 10% 0;
 }
 .Body div:last-child{
-  padding: 2% 0 2% 0;
+  padding: 10% 0 10% 0;
+  border-bottom: none;
 }
 /* 게시판 */
 

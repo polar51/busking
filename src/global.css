@@ -22,11 +22,11 @@
 html, body, #root{
   background-color: var(--font-color);
   color: var(--bg-color);
-  height: 100%;
 }
 
 
 
-a{
+a:global{
   text-decoration: none;
 }
+

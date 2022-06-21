@@ -1,12 +1,22 @@
 import styles from "./Layout.module.css";
 import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect,useState } from 'react';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slide from "../Components/Slide"
+
 
 function Layout() {
+  const [scroll, setScroll] = useState(0);
   const location = useLocation()
   const navigate = useNavigate()
   let sessionStorage = window.sessionStorage;
   const onBusking = location.pathname;
+
+
+  const handleScroll = () => {
+      setScroll(window.pageYOffset)
+    }
 
 
   const welcome = () => {
@@ -48,11 +58,12 @@ function Layout() {
   useEffect(() => {
     welcome()
     loginLogout()
+    window.addEventListener('scroll', handleScroll);
   },[sessionStorage])
 
 
   return (
-    <div className={`${styles.Layout} ${onBusking === "/busking" ? [styles.Black] : [styles.White]}`}>
+    <div className={`${styles.Layout} ${onBusking === "/busking" && scroll < 200 ? [styles.Black] : [styles.White]}`}>
       <header className={styles.Header}>
         {welcome()} 
         <div className={styles.inner}>
@@ -78,8 +89,11 @@ function Layout() {
                 </li>
           </ul>
         </nav>
+        <Outlet />
+        <div className={styles.sidebar}>
+          <Slide />
+        </div>
       </section>
-      <Outlet />
       <footer className={styles.Footer}>
           <p>
           Copyright 2021. Won Daehan All pictures cannot be copied without permission.
