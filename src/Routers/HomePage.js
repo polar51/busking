@@ -84,7 +84,7 @@ function HomePage() {
   return(
     <div className={styles.Body}>
       <div className={`${styles.intro} ${scrollPosition<200 ? [styles.WhiteBorder] : [styles.BlackBorder]} `}>
-        <h2>버스모아란?</h2>
+        <h2 className={styles.introH2}>버스모아란?</h2>
         <p>"버스킹" + "모아보기"의 줄임말로 저희 홈페이지를 나타내는 말이자 버스킹 일정이나 정보등을 여러분들에게 모아서 보여줄 수 있는 홈페이지를 만들자는 의미를 가진 단어입니다</p>
       </div>
       <div className={`${styles.musicContent} ${scrollPosition<200 ? [styles.WhiteBorder] : [styles.BlackBorder]} `}>

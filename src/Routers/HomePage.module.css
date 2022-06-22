@@ -24,6 +24,15 @@
   padding: 10% 0 10% 0;
   border-bottom: none;
 }
+
+
+.introH2{
+  font-size: var(--font-xl);
+  margin-bottom: 15px;
+}
+
+
+
 /* 게시판 */
 
 .musicContent, .artContent{
