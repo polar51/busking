@@ -171,8 +171,10 @@ function Detail() {
         <p>날씨: {des}</p>
         <img src={weatherIcon()} />
       </div>
-      {loginBtn()}
-      {loginBtn2()}
+      <div className={styles.btnBox}>
+        {loginBtn()}
+        {loginBtn2()}
+      </div>
     </div>
   )
 };

@@ -105,7 +105,7 @@ const Create = () => {
 
   return(
     <div className={styles.Body}>
-      <button type="button" onClick={goBack} className={styles.backBtn}>뒤로가기</button>
+      <button type="button" onClick={goBack} className={styles.backBtn}>작성 취소</button>
       <table className={styles.Table}>
         <thead>
           <tr>

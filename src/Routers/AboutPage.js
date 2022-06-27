@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,useLocation } from "react-router-dom";
 import Pagination from "react-js-pagination"
+import Album from "../Components/Album";
 
 function AboutPage() {
   const { state } = useLocation();
@@ -127,6 +128,9 @@ function AboutPage() {
 
   return(
     <div className={styles.Body}>
+      <div className={styles.albumBox}>
+        <Album />
+      </div>
       <div className={styles.MainCont}>
         <div className={styles.SerchCont}>
             <select value={inputSelect} onChange={handleSelect}>
@@ -141,12 +145,6 @@ function AboutPage() {
         </div>
         <div className={styles.TableCont}>
         <table className={styles.Table}>
-        <colgroup>
-        <col width="150px" />
-        <col width="800px" />
-        <col width="200px" />
-        <col width="200px" />
-        </colgroup>
         <thead>
           <tr>
             <th>공연형태</th>

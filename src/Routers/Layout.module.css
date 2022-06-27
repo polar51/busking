@@ -81,11 +81,11 @@
 .loginBtn{
   cursor: pointer;
   background-color: inherit;
-  color: var(--font-downColor);
+  color: inherit;
   border: none;
 }
 .loginBtn:hover{
-  color: var(--font-color);
+  color: var(--font-downcolor);
 }
 
 

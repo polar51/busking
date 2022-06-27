@@ -1,19 +1,62 @@
 
 
 .Body{
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  transform: translate(-20%,-50%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  width: 70%;
 }
 
 .Table{
-  border: 1px solid black;
-  width: 900px;
+  border: 1px solid var(--bg-color);
 }
 
-.Table td {
-  border: 1px solid black;
+.Table th {
   text-align: center;
-  /* padding: 15px; */
+  padding: 15px;
+}
+
+
+.Table td {
+  border: 1px solid var(--bg-color);
+  text-align: center;
+  padding: 15px;
+}
+
+.Table input, select, textarea {
+  border: 1px solid var(--bg-color);
+}
+
+/* 텍스트 에어리어 */
+.Table textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  background-color: var(--font-color);
+}
+.Table textarea{
+  height: 15vh;
+}
+
+
+
+/* TD 상세 조정 */
+
+.teamName {
+  position: relative;
+  bottom: 30px;
+}
+
+/* 버튼 */
+
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.backBtn {
+  width: 15%;
+  padding: 5px 20px;
+  margin-bottom: 15px;
 }

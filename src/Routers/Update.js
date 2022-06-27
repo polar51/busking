@@ -97,7 +97,7 @@ const Update = () => {
 
   return(
     <div className={styles.Body}>
-      <button type="button" onClick={goBack}>뒤로가기</button>
+      <button type="button" onClick={goBack} className={styles.backBtn}>뒤로가기</button>
       <table className={styles.Table}>
         <thead>
           <tr>
@@ -152,12 +152,12 @@ const Update = () => {
           </tr>
           <tr>
             <td colSpan="3">
-              <input type="text" value={inputText} onChange={handleText} placeholder='공연 내용을 입력해주세요' />
+              <textarea type="text" value={inputText} onChange={handleText} placeholder='공연 내용을 입력해주세요' />
             </td>
           </tr>
           <tr>
             <td colSpan="2">
-              <input value={inputTeamText} onChange={handleTeamText}  placeholder='우리 공연팀을 소개해주세요!' />
+              <textarea value={inputTeamText} onChange={handleTeamText}  placeholder='우리 공연팀을 소개해주세요!' />
             </td>
             <td colSpan="1">
               <input value={inputTeamName} onChange={handleTeamName} placeholder='우리 공연팀의 이름을 입력해주세요!' />
@@ -165,7 +165,7 @@ const Update = () => {
           </tr>
         </tbody>
       </table>
-      <button onClick={handleClick}>수정 완료!</button>
+      <button onClick={handleClick} className={styles.btn}>수정 완료!</button>
     </div>
   )
 }

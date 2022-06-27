@@ -1,17 +1,31 @@
 
 
 .Body{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  width: 70%;
+  height: 100%;
+}
+
+.albumBox{
+  margin-bottom: 10%;
+}
+
+.MainCont{
+  display: flex;
+  flex-direction: column;
+}
+
+.TableCont {
+  display: flex;
+  flex-direction: column;
 }
 
 .Table{
-  margin: 20px;
+  margin: 3%;
+  text-align: center;
 }
 
 .Table td {
+  cursor: pointer;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   text-align: center;

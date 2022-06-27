@@ -1,4 +1,3 @@
-import { bool } from "prop-types";
 import { useState,useEffect, useRef } from "react";
 import styled from "styled-components";
 
@@ -41,11 +40,11 @@ transition: transform 1.5s ease-in;
 const Slide = () => {
 
   const items = [
-    { id: 1, url: 'http://mstatic1.e-himart.co.kr/contents/goods/00/01/39/53/34/0001395334__100-43438-73781__M_640_640.jpg' },
-    { id: 2, url: 'https://pbs.twimg.com/media/Er75XyVVQAEJzav?format=jpg&name=large' },
-    { id: 3, url: 'https://mblogthumb-phinf.pstatic.net/MjAxNzA3MTlfMTk4/MDAxNTAwNDU2ODk4MjEx.UjNcjVpAJY0jR--T_tJVZYJPqrT2RvGGgSERxv607Fwg.nMobtbMSC0L6MuUy44yYsoflZAkZFr2j43S-xnTF4YEg.JPEG.hwangenter/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%A7%88%EC%88%A0%EB%8C%80%ED%9A%8C-%EB%B0%B0%EB%84%88-%EC%B5%9C%EC%A2%85_0719.jpg?type=w800' },
-    { id: 4, url: 'https://www.danhong.kr/data/item/1579181668/4YSL4YWv4Yar4YSL4YWi4YSD4YWz4YSH4YWi4YSC4YWl4YSO4YWu4Yao4YSM4YWm01.jpg' },
-    { id: 5, url: 'http://mstatic1.e-himart.co.kr/contents/goods/00/01/39/53/34/0001395334__100-43438-73781__M_640_640.jpg' },
+    { id: 1, url: 'http://imagescdn.gettyimagesbank.com/500/201904/jv11350288.jpg' },
+    { id: 2, url: 'https://openimage.interpark.com/goods_image_big/2/5/9/5/6422972595_l.jpg' },
+    { id: 3, url: 'https://t1.daumcdn.net/cfile/tistory/136B7A0F4BE37BF353' },
+    { id: 4, url: 'https://mblogthumb-phinf.pstatic.net/20131214_130/murmurhelp_1386994144331kIAJz_JPEG/%C6%F7%BD%BA%C5%CD%B5%F0%C0%DA%C0%CE5.jpg?type=w2' },
+    { id: 5, url: 'https://mblogthumb-phinf.pstatic.net/20131214_286/murmurhelp_1386994195587aNF1Y_JPEG/%C6%F7%BD%BA%C5%CD%B5%F0%C0%DA%C0%CE14.jpg?type=w2' },
   ];
 
   const elementLength = items[items.length -1].id

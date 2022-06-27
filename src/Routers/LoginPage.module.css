@@ -1,9 +1,9 @@
 
 .Body{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20%;
   border: 1px solid black;
   padding: 50px;
 }
@@ -17,9 +17,16 @@
 .Id{
   margin-bottom: 10px;
 }
+.Id input {
+  margin-left: 15px;
+}
 
 .Pw{
   margin-bottom: 15px;
+}
+
+.Pw input{
+  margin-left: 5px;
 }
 
 .btn{
