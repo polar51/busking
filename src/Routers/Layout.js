@@ -63,12 +63,12 @@ function Layout() {
 
 
   return (
-    <div className={`${styles.Layout} ${onBusking === "/busking" && scroll < 200 ? [styles.Black] : [styles.White]}`}>
+    <div className={`${styles.Layout} ${onBusking === "/busking/" && scroll < 200 ? [styles.Black] : [styles.White]}`}>
       <header className={styles.Header}>
         {welcome()} 
         <div className={styles.inner}>
           <h1 className={styles.Hh1}>
-            <Link to="/busking" className={styles.Link}>버스모아</Link>
+            <Link to="/busking/" className={styles.Link}>버스모아</Link>
           </h1>
         </div>
       </header>

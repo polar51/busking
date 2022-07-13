@@ -4,7 +4,6 @@ import { useState,useEffect } from 'react';
 import { reset } from "styled-reset";
 import { createGlobalStyle } from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from "styled-components";
 import Layout from "./Routers/Layout";
 import HomePage from "./Routers/HomePage";
 import AboutPage from "./Routers/AboutPage";

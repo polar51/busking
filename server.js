@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5000; 
+const port = 3000; 
 const cors = require("cors");
 const mysql = require("mysql"); 
 const cookieParser = require('cookie-parser')
@@ -13,7 +13,7 @@ app.use(
 const connection = mysql.createConnection({
   connectTimeout : 10,
   host: "localhost",
-  user: "polar51",
+  user: "root",
   password: "Kodo760386!",
   database: "busking",
   dateStrings: 'date'
